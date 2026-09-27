@@ -84,6 +84,33 @@ def relevant(name, q, exclude="", loose=False):
     return True
 
 
+ONLINE_OK_NEXT = set("""slices sliced shredded block blocks pack packs bag bags box value family size club jumbo large medium small original
+organic natural grade bunch bunched loose bulk each ea count ct pk tub jug bottle carton can cans whole lean boneless skinless fillets fillet
+thighs breasts salted unsalted white brown red green yellow plain regular classic light free range omega eggs in with by from product
+multipack variety snack snacks pouches pouch cups unsweetened sweetened lb lbs kg g l ml x bread loaf""".split())
+
+
+def online_head_ok(name, q):
+    """Online catalogues are huge: what follows the searched words must be the end, a size, punctuation or a describing word."""
+    raw = str(name or "").lower()
+    words = [w for w in with_syn(norm_text(name)).split(" ") if w]
+    toks = [t for t in with_syn(norm_text(q)).split(" ") if len(t) > 1 and t not in STOP and not t[0].isdigit()]
+    if not toks:
+        return True
+    last, last_stem = -1, ""
+    for t in toks:
+        st = re.sub(r"(es|s)$", "", re.sub(r"ies$", "", t)) if len(t) > 3 else t
+        idx = next((i for i, w in enumerate(words) if w.startswith(st) and len(w) - len(st) <= 3), -1)
+        if idx > last:
+            last, last_stem = idx, st
+    if last < 0:
+        return False
+    nxt = words[last + 1] if last + 1 < len(words) else None
+    if not nxt or nxt[0].isdigit() or nxt in ONLINE_OK_NEXT:
+        return True
+    return bool(re.search(re.escape(last_stem) + r"[a-z]{0,3}\s*[,\-\u2013(|:\u00ae\u2122]", raw))
+
+
 def parse_deal(text):
     t = (text or "").lower()
     if re.search(r"\bbogo\b", t):
@@ -168,7 +195,8 @@ def best_for(item, data, stores, now):
     cands = [c for c in (to_cand(r, "flyer", now) for r in data.get("items", [])) if c]
     cands += [c for c in (to_cand(r, "ecom", now) for r in data.get("ecom_items", [])) if c]
     q, ex, loose = item.get("q") or item["name"], item.get("exclude", ""), bool(item.get("loose"))
-    cands = [c for c in cands if c["store"] in stores and relevant(c["name"], q, ex, loose)]
+    cands = [c for c in cands if c["store"] in stores and relevant(c["name"], q, ex, loose)
+             and (loose or c["source"] == "flyer" or online_head_ok(c["name"], q))]
     if not cands and not loose:  # not in any flyer: closest online match
         cands = [c for c in (to_cand(r, "ecom", now) for r in data.get("ecom_items", [])) if c]
         cands = [c for c in cands if c["store"] in stores and relevant(c["name"], q, ex, True)]
