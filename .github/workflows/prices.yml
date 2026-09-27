@@ -1,0 +1,28 @@
+name: Track grocery prices
+on:
+  schedule:
+    - cron: "12 11 * * *"   # every morning, about 7:12 am Toronto time
+  workflow_dispatch: {}
+permissions:
+  contents: write
+concurrency:
+  group: prices
+  cancel-in-progress: false
+jobs:
+  track:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Check prices and send alerts
+        run: python tracker/track.py
+        env:
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+      - name: Save price history
+        run: |
+          git config user.name "grocery-price-bot"
+          git config user.email "grocery-price-bot@users.noreply.github.com"
+          git add data
+          if git diff --cached --quiet; then echo "no changes"; else git commit -m "Price check $(date -u +%F)" && git push; fi
