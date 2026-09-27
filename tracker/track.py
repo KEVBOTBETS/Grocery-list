@@ -96,6 +96,28 @@ def parse_deal(text):
     return (buy + free, free * (1.0 if "free" in m.group(3) else 0.5)) if 1 <= buy <= 6 else None
 
 
+def parse_size(name):
+    """(dimension, base amount) from a product name: 4 L -> ('vol', 4000), 12 x 355 mL, 680 g, 18's ..."""
+    t = " " + str(name or "").lower().replace(",", ".") + " "
+    m = re.search(r"(\d+)\s*[x\u00d7]\s*(\d+(?:\.\d+)?)\s*(kg|g|ml|l|oz)\b", t)
+    count, amt, unit = 1, None, None
+    if m:
+        count, amt, unit = int(m.group(1)), float(m.group(2)), m.group(3)
+    else:
+        m = re.search(r"(\d+(?:\.\d+)?)\s*(kg|g|lbs?|ml|l|oz)\b", t)
+        if m:
+            amt, unit = float(m.group(1)), m.group(2)
+    if unit:
+        tot = count * amt
+        mult = {"kg": ("mass", 1000), "g": ("mass", 1), "lb": ("mass", 453.592), "lbs": ("mass", 453.592), "oz": ("mass", 28.3495),
+                "l": ("vol", 1000), "ml": ("vol", 1)}[unit]
+        return (mult[0], tot * mult[1])
+    m = re.search(r"(\d+)\s*(?:'s|\u2019s|s\b|\s?pk|\s?pack|\s?ct|\s?count|\s?rolls?|\s?eggs)\b", t)
+    if m and 1 < int(m.group(1)) <= 200:
+        return ("count", int(m.group(1)))
+    return None
+
+
 def to_cand(raw, source, now):
     merchant = raw.get("merchant_name") if source == "flyer" else raw.get("merchant")
     sid = M2S.get(norm_key(merchant))
@@ -131,7 +153,8 @@ def to_cand(raw, source, now):
     if deal and not per:  # best case when buying the deal quantity
         size, free = deal
         price = unit * (size - free) / size
-    return {"store": sid, "name": raw["name"], "p": round(price, 2), "per": per, "source": source, "orig": raw.get("original_price")}
+    return {"store": sid, "name": raw["name"], "p": round(price, 2), "per": per, "source": source, "orig": raw.get("original_price"),
+            "size": None if per else parse_size(raw["name"])}
 
 
 def fetch(q, postal):
@@ -158,9 +181,16 @@ def best_for(item, data, stores, now):
         except re.error:
             pass
     score = lambda c: sum(len(pats) - i for i, rx in enumerate(pats) if rx.search(c["name"]))
-    cands.sort(key=lambda c: (-score(c), 0 if c["source"] == "flyer" else 1, c["p"]))
+    # cheapest wins (flyer or online), but a much smaller package than the rest is pushed down (same rule as the app)
+    by_dim = {}
+    for c in cands:
+        if c["size"]:
+            by_dim.setdefault(c["size"][0], []).append(c["size"][1])
+    med = {d: sorted(v)[len(v) // 2] for d, v in by_dim.items() if len(v) >= 3}
+    small = lambda c: 1 if c["size"] and med.get(c["size"][0]) and c["size"][1] < med[c["size"][0]] * 0.4 else 0
+    cands.sort(key=lambda c: (-score(c), small(c), c["p"]))
     per_store = {}
-    for c in sorted(cands, key=lambda c: (0 if c["source"] == "flyer" else 1, c["p"])):
+    for c in cands:
         per_store.setdefault(c["store"], c["p"])
     return cands[0], per_store
 
