@@ -3,7 +3,7 @@
    Everything is saved on this device (localStorage). */
 'use strict';
 
-const APP_VERSION = '2.0.0';
+const APP_VERSION = '2.0.1';
 const API = 'https://backflipp.wishabi.com/flipp/items/search';
 const CACHE_TTL = 6 * 3600 * 1000; // re-check prices every 6 hours
 const STATE_KEY = 'gl.state.v1';
