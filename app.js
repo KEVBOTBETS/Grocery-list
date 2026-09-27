@@ -3,7 +3,7 @@
    Everything is saved on this device (localStorage). */
 'use strict';
 
-const APP_VERSION = '1.0.0';
+const APP_VERSION = '1.1.0';
 const API = 'https://backflipp.wishabi.com/flipp/items/search';
 const CACHE_TTL = 6 * 3600 * 1000; // re-check prices every 6 hours
 const STATE_KEY = 'gl.state.v1';
@@ -34,8 +34,19 @@ const STORE_BY_ID = Object.fromEntries(STORES.map(s => [s.id, s]));
 const MERCHANT_TO_STORE = {};
 STORES.forEach(s => s.match.forEach(m => { MERCHANT_TO_STORE[m] = s.id; }));
 
-const QUICK_ADD = ['Milk', 'Eggs', 'Bread', 'Butter', 'Bananas', 'Apples', 'Chicken breast', 'Ground beef', 'Cheese', 'Yogurt', 'Coffee', 'Cereal', 'Pasta', 'Rice', 'Potatoes', 'Onions', 'Tomatoes', 'Lettuce', 'Orange juice', 'Bacon', 'Strawberries', 'Toilet paper', 'Paper towels', 'Laundry detergent'];
+const QUICK_ADD = ['Milk', 'Lactose-free milk', 'Eggs', 'Bread', 'Butter', 'Bananas', 'Apples', 'Chicken breast', 'Ground beef', 'Cheese', 'Yogurt', 'Coffee', 'Cereal', 'Pasta', 'Rice', 'Potatoes', 'Onions', 'Tomatoes', 'Lettuce', 'Orange juice', 'Bacon', 'Strawberries', 'Toilet paper', 'Paper towels', 'Laundry detergent'];
 
+// "Try also" suggestions in an item's details
+const VARIANTS = {
+  milk: ['Lactose-free milk', '2% milk', 'Skim milk', 'Homogenized milk', 'Oat milk', 'Almond milk'],
+  cream: ['Lactose-free cream', 'Coffee cream', 'Whipping cream'],
+  yogurt: ['Lactose-free yogurt', 'Greek yogurt'],
+  cheese: ['Lactose-free cheese', 'Cheddar cheese', 'Mozzarella cheese', 'Cheese slices'],
+  'ice cream': ['Lactose-free ice cream'],
+  'sour cream': ['Lactose-free sour cream'],
+  bread: ['Whole wheat bread', 'Gluten-free bread', 'Bagels'],
+  coffee: ['Ground coffee', 'Coffee pods', 'Instant coffee'],
+};
 const STOP = new Set(['the', 'and', 'or', 'of', 'a', 'an', 'for', 'with', 'fresh', 'x']);
 
 // ---------- helpers ----------
@@ -198,8 +209,11 @@ const FOLLOW_STOP = new Set(['chocolate', 'chocolates', 'bar', 'bars', 'bread', 
   'cookie', 'cookies', 'creamer', 'creamers', 'whitener', 'machine', 'machines', 'maker', 'makers', 'filter', 'filters', 'noodle', 'noodles', 'roll', 'rolls',
   'sauce', 'sauces', 'seasoning', 'flavour', 'flavoured', 'flavored', 'candy', 'candies', 'pudding', 'puddings', 'juice', 'juices', 'drink', 'drinks', 'shampoo',
   'soap', 'lotion', 'candle', 'candles', 'scented', 'mug', 'mugs', 'bowl', 'bowls', 'dish', 'dishes', 'toy', 'toys', 'treat', 'treats', 'popsicle', 'popsicles',
-  'loaf', 'loaves', 'pie', 'pies', 'tart', 'tarts', 'danish', 'squares', 'wafers', 'bites', 'jerky', 'dog', 'cat', 'pet', 'bath', 'body', 'powder', 'spread', 'dip', 'dips']);
-const PRECEDE_STOP = new Set(['chocolate', 'coconut', 'almond', 'oat', 'soy', 'cashew', 'peanut', 'apple', 'body', 'cocoa', 'shea', 'dog', 'cat', 'pet', 'baby']);
+  'loaf', 'loaves', 'pie', 'pies', 'tart', 'tarts', 'danish', 'squares', 'wafers', 'bites', 'jerky', 'dog', 'cat', 'pet', 'bath', 'body', 'powder', 'spread', 'dip', 'dips',
+  'syrup', 'syrups', 'rice', 'side', 'crackers', 'cereal', 'cereals', 'granola', 'gummies', 'gels', 'cups', 'flavour', 'ice', 'freezies', 'lip', 'balm', 'wash', 'cleaner']);
+// checked in the 3 words before the match, so "Coconut Cream or Milk" is caught too
+const PRECEDE_STOP = new Set(['chocolate', 'chocolated', 'coconut', 'almond', 'oat', 'soy', 'cashew', 'peanut', 'body', 'cocoa', 'shea', 'dog', 'cat', 'pet', 'baby',
+  'evaporated', 'condensed', 'powdered', 'goat', 'hemp', 'rice', 'pistachio', 'apple']);
 
 function relevant(name, q, exclude) {
   const words = normText(name).split(' ').filter(Boolean);
@@ -210,7 +224,7 @@ function relevant(name, q, exclude) {
   const hits = [];
   for (const t of toks) {
     const stem = stemOf(t);
-    const idx = words.findIndex(w => w.startsWith(stem));
+    const idx = words.findIndex(w => w.startsWith(stem) && w.length - stem.length <= 3);
     if (idx < 0) return false;
     hits.push(idx);
   }
@@ -220,6 +234,7 @@ function relevant(name, q, exclude) {
     const next = words[last + 1], prev = words[first - 1];
     if (next && FOLLOW_STOP.has(next) && !qWords.has(next)) return false;
     if (prev && PRECEDE_STOP.has(prev) && !qWords.has(prev)) return false;
+    for (let k = Math.max(0, first - 3); k < last; k++) if (PRECEDE_STOP.has(words[k]) && !qWords.has(words[k]) && words[k] !== 'apple') return false;
   }
   if (exclude) {
     for (const w of exclude.split(/[,;]+/).map(x => normText(x)).filter(Boolean)) {
@@ -266,11 +281,14 @@ function candidatesFor(item) {
   list = list.filter(c => !hidden.has(c.key));
   const qty = item.qty || 1;
   const key = c => perLb(c) ?? effPrice(c, qty);
+  // Flyer deals rank ahead of online regular prices; online prices fill in when an item isn't in any flyer.
+  const tier = c => c.source === 'flyer' ? 0 : 1;
   if (item.mode === 'unit') {
     const counts = {};
     list.forEach(c => { const u = unitValue(c); if (u) counts[u.dim] = (counts[u.dim] || 0) + 1; });
     const dim = Object.keys(counts).sort((a, b) => counts[b] - counts[a])[0];
     list.sort((a, b) => {
+      if (tier(a) !== tier(b)) return tier(a) - tier(b);
       const ua = unitValue(a), ub = unitValue(b);
       const ha = ua && ua.dim === dim, hb = ub && ub.dim === dim;
       if (ha && hb) return ua.v - ub.v;
@@ -278,7 +296,7 @@ function candidatesFor(item) {
       return key(a) - key(b);
     });
   } else {
-    list.sort((a, b) => key(a) - key(b) || (a.source === 'flyer' ? -1 : 1));
+    list.sort((a, b) => tier(a) - tier(b) || key(a) - key(b));
   }
   return list;
 }
@@ -401,6 +419,11 @@ function toastUndo(msg, undo) {
 }
 
 // ---------- rendering ----------
+function thumb(c, size) {
+  const px = size || 44;
+  if (c && c.img) return `<img class="thumb" style="width:${px}px;height:${px}px" loading="lazy" src="${esc(c.img)}" alt="" onerror="this.outerHTML='<div class=&quot;thumb noimg&quot; style=&quot;width:${px}px;height:${px}px&quot;></div>'">`;
+  return `<div class="thumb noimg" style="width:${px}px;height:${px}px"></div>`;
+}
 function storeTag(id) {
   const s = STORE_BY_ID[id];
   if (!s) return '';
@@ -486,6 +509,7 @@ function renderList(p) {
       right = priceHtml(ch.pick, item.qty);
     }
     html += `<li class="lrow">
+      <div class="limg" data-open="${item.id}">${thumb(ch.pick, 48)}</div>
       <div class="item-name" data-open="${item.id}">${esc(item.q)}</div>
       <div class="lprice" data-open="${item.id}">${right}</div>
       <button class="x-btn ldel" data-del="${item.id}" aria-label="Remove ${esc(item.q)}">${ICON.x}</button>
@@ -557,6 +581,7 @@ function renderShop(p) {
       const find = s.search ? `<a class="btn sm ghost" target="_blank" rel="noopener" href="${esc(s.search + encodeURIComponent(item.q))}" title="Find on ${esc(s.short)} site">${ICON.ext}</a>` : '';
       html += `<li class="item${item.done ? ' done' : ''}">
         <input type="checkbox" class="check" data-done="${item.id}" ${item.done ? 'checked' : ''} aria-label="Got ${esc(item.q)}">
+        <div data-open="${item.id}" style="cursor:pointer">${thumb(pick, 44)}</div>
         <div class="item-main" data-open="${item.id}">
           <div class="item-name">${q > 1 ? q + ' × ' : ''}${esc(item.q)}</div>
           <div class="item-sub">${pick ? esc(pick.name) : 'No flyer price — check shelf'}${pick && pick.badges.length ? ' · ' + esc(pick.badges.join(', ')) : ''}${why === 'locked' ? ' · locked here' : ''}</div>
@@ -648,7 +673,7 @@ function renderCompare() {
 let compareMode = 'price', compareExclude = '';
 
 function candRow(c, best, itemId) {
-  const img = c.img ? `<img loading="lazy" src="${esc(c.img)}" alt="" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'noimg'}))">` : '<div class="noimg"></div>';
+  const img = thumb(c, 64);
   const actions = itemId ? `<div class="row" style="gap:4px;flex-direction:column">
       <button class="btn sm${best ? ' primary' : ''}" data-pick="${esc(c.key)}" data-item="${itemId}">${best ? 'Using' : 'Use'}</button>
       <button class="btn sm ghost" data-hide="${esc(c.key)}" data-item="${itemId}" title="Wrong item — hide">Hide</button></div>` : '';
@@ -685,10 +710,19 @@ function renderSheet() {
   else if (!ch.cands.length) body = `<div class="empty small">No matches at your stores this week. Try a simpler name (edit above), un-hide items, or turn on more stores in Settings.</div>`;
   else body = ch.cands.map(c => candRow(c, ch.pick && c.key === ch.pick.key, item.id)).join('');
   const nHidden = (item.hidden || []).length;
+  const vkey = Object.keys(VARIANTS).find(k => normText(item.q) === k || normText(item.q).endsWith(' ' + k));
+  const variants = vkey ? VARIANTS[vkey].filter(v => normText(v) !== normText(item.q)) : [];
+  const variantHtml = variants.length ? `<div><div class="tiny muted strong" style="margin-bottom:6px">Try also</div><div class="chips">${variants.map(v => {
+      const inList = state.items.some(i => normText(i.q) === normText(v));
+      return `<button class="chip${inList ? ' on' : ''}" data-variant="${esc(v)}" ${inList ? 'disabled' : ''}>${inList ? '✓ ' : '+ '}${esc(v)}</button>`;
+    }).join('')}</div><div class="tiny faint" style="margin-top:4px">Adds it as its own item so it gets its own cheapest store.</div></div>` : '';
+  const hero = ch.pick ? `<div class="hero">${thumb(ch.pick, 96)}<div class="grow"><div class="row" style="gap:6px">${storeTag(ch.pick.storeId)}<span class="pill sale">${ch.why === 'picked' ? 'Your pick' : ch.why === 'locked' ? 'Store locked' : 'Cheapest'}</span></div>
+      <div class="cand-name" style="margin-top:4px">${esc(ch.pick.name)}</div></div>${priceHtml(ch.pick, item.qty)}</div>` : '';
   const scrollTop = $('#sheet').scrollTop;
   $('#sheet').innerHTML = `<div class="sheet-grip"></div>
     <div class="row between"><h2 style="font-size:18px;text-transform:capitalize">${esc(item.q)}</h2><button class="x-btn" data-close aria-label="Close">${ICON.x}</button></div>
     <div class="stack" style="margin-top:10px">
+      ${hero}
       <div class="row wrap" style="gap:12px">
         <label class="field grow">Item name<input type="text" id="sheetName" value="${esc(item.q)}"></label>
         <label class="field" style="width:110px">Quantity<input type="number" id="sheetQty" min="1" max="99" value="${item.qty || 1}"></label>
@@ -701,6 +735,7 @@ function renderSheet() {
         <div class="seg" role="group" aria-label="Compare by"><button data-mode="price" class="${item.mode !== 'unit' ? 'on' : ''}">Sticker price</button><button data-mode="unit" class="${item.mode === 'unit' ? 'on' : ''}">Unit price</button></div>
         <div class="row">${item.pick ? `<button class="btn sm" data-unpick="${item.id}">Back to cheapest</button>` : ''}${nHidden ? `<button class="btn sm ghost" data-unhide="${item.id}">Show ${nHidden} hidden</button>` : ''}</div>
       </div>
+      ${variantHtml}
       <div class="tiny muted">${ch.cands.length} match${ch.cands.length === 1 ? '' : 'es'} across ${new Set(ch.cands.map(c => c.storeId)).size} stores. Prices marked /lb are per pound. “Use” pins that exact product; “Hide” removes a wrong match.</div>
       <div>${body}</div>
     </div>`;
@@ -726,7 +761,7 @@ function renderSettings() {
   <div class="card pad">${STORES.filter(x => x.extra).map(toggle).join('')}</div>
   <div class="section-title">Prices</div>
   <div class="card pad">
-    <div class="store-toggle"><div class="grow"><div class="strong">Include online regular prices</div><div class="tiny muted">Non-sale prices from store websites (mostly Walmart) so items not on sale still get a price</div></div>
+    <div class="store-toggle"><div class="grow"><div class="strong">Include online regular prices</div><div class="tiny muted">Regular prices from store websites (mostly Walmart). Used when an item isn't in any flyer this week; always shown in an item's details</div></div>
       <label class="switch"><input type="checkbox" data-setting="online" ${s.online ? 'checked' : ''}><span></span></label></div>
     <div class="store-toggle"><div class="grow"><div class="strong">Include flyers starting soon</div><div class="tiny muted">Next week's flyers once they're posted (marked “Starts …”)</div></div>
       <label class="switch"><input type="checkbox" data-setting="upcoming" ${s.upcoming ? 'checked' : ''}><span></span></label></div>
@@ -753,6 +788,7 @@ document.addEventListener('click', async e => {
   if ('close' in d) return closeSheet();
   if (d.go) { state.tab = d.go; save(); render(); window.scrollTo(0, 0); return; }
   if (d.quick) return addItems(d.quick);
+  if (d.variant) { addItems(d.variant); return renderSheet(); }
   if (d.open) return openSheet(d.open);
   if (d.inc || d.dec) {
     const it = findItem(d.inc || d.dec);

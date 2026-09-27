@@ -184,10 +184,11 @@ details.more > summary::-webkit-details-marker { display: none; }
 
 /* list rows */
 .lrow {
-  display: grid; grid-template-columns: minmax(0, 1fr) auto 32px; grid-template-areas: "name price del" "sub qty qty";
+  display: grid; grid-template-columns: 48px minmax(0, 1fr) auto 32px; grid-template-areas: "img name price del" "img sub qty qty";
   column-gap: 10px; row-gap: 6px; align-items: center; padding: 11px 8px 11px 14px; border-top: 1px solid var(--line);
 }
 .lrow:first-child { border-top: 0; }
+.lrow .limg { grid-area: img; align-self: start; cursor: pointer; }
 .lrow .item-name { grid-area: name; cursor: pointer; }
 .lrow .lprice { grid-area: price; cursor: pointer; }
 .lrow .ldel { grid-area: del; }
@@ -209,11 +210,15 @@ table.cmp th, table.cmp td { padding: 7px 6px; border-top: 1px solid var(--line)
 table.cmp th { font-size: 12px; color: var(--muted); font-weight: 600; border-top: 0; }
 table.cmp td.r, table.cmp th.r { text-align: right; }
 
+/* photos */
+.thumb { display: block; object-fit: contain; border-radius: 10px; background: #fff; border: 1px solid var(--line); flex: none; }
+.thumb.noimg { background: var(--soft) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 4h2l2.4 10.2a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.5L21 8H6.2' fill='none' stroke='%238a968f' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 50% no-repeat; }
+.hero { display: flex; gap: 12px; align-items: center; background: var(--brand-soft); border-radius: 12px; padding: 10px; }
+.chip:disabled { opacity: .7; cursor: default; }
+
 /* candidates */
 .cand { display: flex; gap: 10px; align-items: center; padding: 10px 0; border-top: 1px solid var(--line); }
 .cand:first-child { border-top: 0; }
-.cand img { width: 52px; height: 52px; object-fit: contain; border-radius: 8px; background: #fff; border: 1px solid var(--line); flex: none; }
-.cand .noimg { width: 52px; height: 52px; border-radius: 8px; background: var(--soft); flex: none; }
 .cand.best { background: var(--brand-soft); margin: 0 -10px; padding: 10px; border-radius: 10px; border-top-color: transparent; }
 .cand.best + .cand { border-top-color: transparent; }
 .cand-name { font-size: 13.5px; font-weight: 600; line-height: 1.3; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
