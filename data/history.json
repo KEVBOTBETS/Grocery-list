@@ -19,10 +19,10 @@
    "name": "Apples",
    "weeks": {
     "2026-09-24": {
-     "p": 0.98,
-     "per": "lb",
-     "product": "Bulk Gala apples",
-     "source": "flyer",
+     "p": 0.39,
+     "per": null,
+     "product": "Apple, Gala",
+     "source": "ecom",
      "store": "walmart",
      "stores": {
       "costco": 44.99,
@@ -33,7 +33,7 @@
       "metro": 2.49,
       "sobeys": 1.29,
       "superstore": 1.5,
-      "walmart": 0.98
+      "walmart": 0.39
      }
     }
    }
@@ -92,7 +92,7 @@
       "metro": 0.99,
       "sobeys": 2.67,
       "superstore": 2.5,
-      "walmart": 2.68
+      "walmart": 1.97
      }
     }
    }
@@ -101,15 +101,15 @@
    "name": "Butter",
    "weeks": {
     "2026-09-24": {
-     "p": 4.97,
+     "p": 4.47,
      "per": null,
-     "product": "Gay Lea butter",
-     "source": "flyer",
+     "product": "Gay Lea Foods Light Spreadables Butter 227g",
+     "source": "ecom",
      "store": "walmart",
      "stores": {
       "loblaws": 4.99,
       "sobeys": 5.99,
-      "walmart": 4.97
+      "walmart": 4.47
      }
     }
    }
@@ -141,18 +141,18 @@
    "name": "Chicken breast",
    "weeks": {
     "2026-09-24": {
-     "p": 4.99,
-     "per": "lb",
-     "product": "Fresh, Canadian Split Chicken Breast",
-     "source": "flyer",
-     "store": "farmboy",
+     "p": 2.98,
+     "per": null,
+     "product": "Your Fresh Market Smoked Chicken Breast",
+     "source": "ecom",
+     "store": "walmart",
      "stores": {
       "farmboy": 4.99,
       "longos": 8.99,
       "metro": 13.49,
       "sobeys": 5.99,
       "superstore": 9.79,
-      "walmart": 7.96
+      "walmart": 2.98
      }
     }
    }
@@ -161,11 +161,11 @@
    "name": "Coffee",
    "weeks": {
     "2026-09-24": {
-     "p": 5.99,
+     "p": 5.77,
      "per": null,
-     "product": "MAXWELL HOUSE INSTANT COFFEE",
-     "source": "flyer",
-     "store": "metro",
+     "product": "Great Value Instant Coffee 200 G",
+     "source": "ecom",
+     "store": "walmart",
      "stores": {
       "costco": 22.49,
       "farmboy": 7.97,
@@ -175,7 +175,7 @@
       "metro": 5.99,
       "sobeys": 7.99,
       "superstore": 7.25,
-      "walmart": 22.86
+      "walmart": 5.77
      }
     }
    }
@@ -184,11 +184,11 @@
    "name": "Eggs",
    "weeks": {
     "2026-09-24": {
-     "p": 3.99,
+     "p": 3.93,
      "per": null,
-     "product": "Gray Ridge Large White Eggs",
-     "source": "flyer",
-     "store": "longos",
+     "product": "Great Value Large 12 Eggs L",
+     "source": "ecom",
+     "store": "walmart",
      "stores": {
       "farmboy": 4.88,
       "freshco": 4.77,
@@ -196,7 +196,7 @@
       "metro": 4.98,
       "sobeys": 4.99,
       "superstore": 4.44,
-      "walmart": 6.22
+      "walmart": 3.93
      }
     }
    }
@@ -205,11 +205,11 @@
    "name": "Fruitsations",
    "weeks": {
     "2026-09-24": {
-     "p": 9.99,
+     "p": 2.47,
      "per": null,
-     "product": "Mott's Fruitsations fruit flavoured snacks",
-     "source": "flyer",
-     "store": "costco",
+     "product": "Mott's Fruitsations Mott\u2019s Fruitsations Original Apple Sauce 624 G",
+     "source": "ecom",
+     "store": "walmart",
      "stores": {
       "costco": 9.99,
       "superstore": 12.0,
@@ -222,11 +222,11 @@
    "name": "Ground beef extra lean",
    "weeks": {
     "2026-09-24": {
-     "p": 9.99,
-     "per": "lb",
-     "product": "Fresh Extra Lean Ground Beef - Big Earn",
-     "source": "flyer",
-     "store": "sobeys",
+     "p": 8.98,
+     "per": null,
+     "product": "Extra Lean Ground Beef, Your Fresh Market",
+     "source": "ecom",
+     "store": "walmart",
      "stores": {
       "loblaws": 10.5,
       "sobeys": 9.99,
@@ -240,13 +240,13 @@
    "name": "Ground beef lean",
    "weeks": {
     "2026-09-24": {
-     "p": 7.98,
+     "p": 8.78,
      "per": null,
-     "product": "Ground Beef Lean Tube, Your Fresh Market",
+     "product": "Barakah Meadows Lean Ground Beef",
      "source": "ecom",
      "store": "walmart",
      "stores": {
-      "walmart": 7.98
+      "walmart": 8.78
      }
     }
    }
@@ -270,10 +270,10 @@
    "name": "Milk",
    "weeks": {
     "2026-09-24": {
-     "p": 4.57,
+     "p": 3.64,
      "per": null,
-     "product": "Natrel fine-filtered milk",
-     "source": "flyer",
+     "product": "Sealtest Skim 0% Milk 1l 1 L",
+     "source": "ecom",
      "store": "walmart",
      "stores": {
       "costco": 19.99,
@@ -281,7 +281,7 @@
       "longos": 6.49,
       "metro": 7.99,
       "superstore": 5.5,
-      "walmart": 4.57
+      "walmart": 3.64
      }
     }
    }
@@ -360,18 +360,18 @@
    "name": "Potatoes",
    "weeks": {
     "2026-09-24": {
-     "p": 1.99,
+     "p": 1.0,
      "per": null,
-     "product": "WHITE POTATOES",
-     "source": "flyer",
-     "store": "metro",
+     "product": "Potato, Red",
+     "source": "ecom",
+     "store": "walmart",
      "stores": {
       "farmboy": 2.99,
       "loblaws": 2.0,
       "longos": 2.99,
       "metro": 1.99,
       "superstore": 2.0,
-      "walmart": 2.98
+      "walmart": 1.0
      }
     }
    }
@@ -390,7 +390,7 @@
       "freshco": 1.99,
       "sobeys": 2.99,
       "superstore": 2.5,
-      "walmart": 0.97
+      "walmart": 1.98
      }
     }
    }
@@ -414,11 +414,11 @@
    "name": "Strawberries",
    "weeks": {
     "2026-09-24": {
-     "p": 4.99,
+     "p": 0.97,
      "per": null,
-     "product": "Fresh Strawberries",
-     "source": "flyer",
-     "store": "longos",
+     "product": "Fruit2o Sparkling Strawberry 502ml 502 Ml",
+     "source": "ecom",
+     "store": "walmart",
      "stores": {
       "longos": 4.99,
       "walmart": 0.97
@@ -450,5 +450,5 @@
   }
  },
  "postal": "L1M2E2",
- "updated": "2026-09-27T17:22:30.436168+00:00"
+ "updated": "2026-09-27T17:33:48.216794+00:00"
 }
