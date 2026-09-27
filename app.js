@@ -3,7 +3,7 @@
    Everything is saved on this device (localStorage). */
 'use strict';
 
-const APP_VERSION = '1.1.0';
+const APP_VERSION = '1.2.0';
 const API = 'https://backflipp.wishabi.com/flipp/items/search';
 const CACHE_TTL = 6 * 3600 * 1000; // re-check prices every 6 hours
 const STATE_KEY = 'gl.state.v1';
@@ -34,7 +34,22 @@ const STORE_BY_ID = Object.fromEntries(STORES.map(s => [s.id, s]));
 const MERCHANT_TO_STORE = {};
 STORES.forEach(s => s.match.forEach(m => { MERCHANT_TO_STORE[m] = s.id; }));
 
-const QUICK_ADD = ['Milk', 'Lactose-free milk', 'Eggs', 'Bread', 'Butter', 'Bananas', 'Apples', 'Chicken breast', 'Ground beef', 'Cheese', 'Yogurt', 'Coffee', 'Cereal', 'Pasta', 'Rice', 'Potatoes', 'Onions', 'Tomatoes', 'Lettuce', 'Orange juice', 'Bacon', 'Strawberries', 'Toilet paper', 'Paper towels', 'Laundry detergent'];
+const QUICK_ADD = ['Milk', 'Lactose-free milk', 'Eggs', 'Bread', 'Butter', 'Bananas', 'Apples', 'Spinach', 'Ground beef lean', 'Ground beef extra lean',
+  'Mini Oreos', 'Mini Oreos white', 'Fruitsations', 'Apple sauce pouches', 'Chicken breast', 'Cheese', 'Yogurt', 'Coffee', 'Cereal', 'Pasta', 'Rice',
+  'Potatoes', 'Onions', 'Tomatoes', 'Lettuce', 'Orange juice', 'Bacon', 'Strawberries', 'Toilet paper', 'Paper towels', 'Laundry detergent'];
+// Tuned searches for items whose shelf names differ from what you'd type.
+// q = what to search, exclude = words that rule a match out, loose = skip the "different product" word filter (brand names).
+// prefer = patterns (most important first) that rank a match ahead of cheaper ones, e.g. your favourite brand/size.
+const PRESETS = {
+  'lactose-free milk': { q: 'lactose free milk', exclude: 'chocolate, cream, eggnog', loose: false, prefer: ['lactantia', '\\b1\\s?%'] },
+  'mini oreos': { q: 'oreo mini', exclude: 'golden, white fudge, puffs, cereal, ice cream, frozen, pudding', loose: true },
+  'mini oreos white': { q: 'oreo mini golden', exclude: 'puffs, cereal, ice cream, frozen', loose: true },
+  'fruitsations': { q: 'fruitsations', exclude: '', loose: true },
+  'apple sauce pouches': { q: 'apple sauce', exclude: 'arrowroot, biscuits, cake, muffin, bread', loose: false },
+  'ground beef lean': { q: 'lean ground beef', exclude: 'extra lean, medium, regular, patties, burgers', loose: false },
+  'ground beef extra lean': { q: 'extra lean ground beef', exclude: 'patties, burgers', loose: false },
+  'spinach': { q: 'spinach', exclude: 'dip, puree, pasta, ravioli, spanakopita, pie', loose: false },
+};
 
 // "Try also" suggestions in an item's details
 const VARIANTS = {
@@ -43,6 +58,8 @@ const VARIANTS = {
   yogurt: ['Lactose-free yogurt', 'Greek yogurt'],
   cheese: ['Lactose-free cheese', 'Cheddar cheese', 'Mozzarella cheese', 'Cheese slices'],
   'ice cream': ['Lactose-free ice cream'],
+  'ground beef': ['Ground beef lean', 'Ground beef extra lean'],
+  oreos: ['Mini Oreos', 'Mini Oreos white'],
   'sour cream': ['Lactose-free sour cream'],
   bread: ['Whole wheat bread', 'Gluten-free bread', 'Bagels'],
   coffee: ['Ground coffee', 'Coffee pods', 'Instant coffee'],
@@ -215,10 +232,13 @@ const FOLLOW_STOP = new Set(['chocolate', 'chocolates', 'bar', 'bars', 'bread', 
 const PRECEDE_STOP = new Set(['chocolate', 'chocolated', 'coconut', 'almond', 'oat', 'soy', 'cashew', 'peanut', 'body', 'cocoa', 'shea', 'dog', 'cat', 'pet', 'baby',
   'evaporated', 'condensed', 'powdered', 'goat', 'hemp', 'rice', 'pistachio', 'apple']);
 
-function relevant(name, q, exclude) {
-  const words = normText(name).split(' ').filter(Boolean);
+const SYNONYMS = [[/\bapplesauce\b/g, 'apple sauce'], [/\bminis\b/g, 'mini']];
+const withSyn = t => SYNONYMS.reduce((acc, [re, rep]) => acc.replace(re, rep), t);
+
+function relevant(name, q, exclude, loose) {
+  const words = withSyn(normText(name)).split(' ').filter(Boolean);
   const hay = ' ' + words.join(' ') + ' ';
-  const qn = normText(q);
+  const qn = withSyn(normText(q));
   const toks = qn.split(' ').filter(t => t.length > 1 && !STOP.has(t) && !/^\d/.test(t) && !/^(kg|g|l|ml|lb|lbs|pk|pack)$/.test(t));
   const stemOf = t => t.length > 3 ? t.replace(/ies$/, '').replace(/(es|s)$/, '') : t;
   const hits = [];
@@ -228,7 +248,7 @@ function relevant(name, q, exclude) {
     if (idx < 0) return false;
     hits.push(idx);
   }
-  if (hits.length) {
+  if (hits.length && !loose) {
     const qWords = new Set(qn.split(' '));
     const first = Math.min(...hits), last = Math.max(...hits);
     const next = words[last + 1], prev = words[first - 1];
@@ -271,7 +291,7 @@ function candidatesFor(item) {
     if (!s.stores[c.storeId]) return false;
     if (c.source === 'ecom' && !s.online) return false;
     if (c.upcoming && !s.upcoming) return false;
-    if (!relevant(c.name, item.q, item.exclude)) return false;
+    if (!relevant(c.name, item.q, item.exclude, item.loose)) return false;
     const dk = c.storeId + '|' + normText(c.name) + '|' + c.price;
     if (seen.has(dk)) return false;
     seen.add(dk);
@@ -297,6 +317,11 @@ function candidatesFor(item) {
     });
   } else {
     list.sort((a, b) => tier(a) - tier(b) || key(a) - key(b));
+  }
+  if (item.prefer && item.prefer.length) {
+    const pats = item.prefer.map(p => { try { return new RegExp(p, 'i'); } catch { return null; } });
+    const score = c => pats.reduce((acc, re, i) => acc + (re && re.test(c.name) ? pats.length - i : 0), 0);
+    list.sort((a, b) => score(b) - score(a)); // stable: keeps cheapest-first within the same preference
   }
   return list;
 }
@@ -388,11 +413,15 @@ function addItems(text) {
   const parts = text.split(/[,\n]+/).map(s => s.trim()).filter(Boolean);
   let added = 0;
   for (const p of parts) {
-    const { q, qty } = parseEntry(p);
-    if (!q) continue;
-    const existing = state.items.find(i => normText(i.q) === normText(q));
+    const { q: typed, qty } = parseEntry(p);
+    if (!typed) continue;
+    const preset = PRESETS[normText(typed)];
+    const q = preset ? preset.q : typed;
+    const label = preset ? typed : null;
+    const existing = state.items.find(i => normText(nameOf(i)) === normText(typed));
     if (existing) { existing.qty = Math.min(99, (existing.qty || 1) + qty); continue; }
-    state.items.push({ id: uid(), q, qty, exclude: '', mode: 'price', pick: null, lock: null, hidden: [], done: false, added: Date.now() });
+    state.items.push({ id: uid(), q, label, qty, exclude: preset ? preset.exclude : '', loose: preset ? preset.loose : false, prefer: preset && preset.prefer ? preset.prefer : null,
+      mode: 'price', pick: null, lock: null, hidden: [], done: false, added: Date.now() });
     ensureResults(q);
     added++;
   }
@@ -401,12 +430,13 @@ function addItems(text) {
   if (parts.length) toast(added ? `Added ${added} item${added > 1 ? 's' : ''} — checking prices` : 'Updated quantity');
 }
 const findItem = id => state.items.find(i => i.id === id);
+const nameOf = item => item.label || item.q;
 function removeItem(id) {
   const idx = state.items.findIndex(i => i.id === id);
   if (idx < 0) return;
   const [gone] = state.items.splice(idx, 1);
   save(); render();
-  toastUndo(`Removed ${gone.q}`, () => { state.items.splice(idx, 0, gone); save(); render(); });
+  toastUndo(`Removed ${nameOf(gone)}`, () => { state.items.splice(idx, 0, gone); save(); render(); });
 }
 function toastUndo(msg, undo) {
   const t = $('#toast');
@@ -476,7 +506,7 @@ function renderSummary(p) {
 }
 
 function renderList(p) {
-  const chips = QUICK_ADD.filter(q => !state.items.some(i => normText(i.q) === normText(q)));
+  const chips = QUICK_ADD.filter(q => !state.items.some(i => normText(nameOf(i)) === normText(q)));
   let html = `<div class="card pad stack">
     <form id="addForm" class="addbar" autocomplete="off">
       <input id="addInput" type="text" enterkeyhint="done" placeholder="Add items — e.g. milk 4L, 2 x eggs, bananas" aria-label="Add grocery items">
@@ -510,9 +540,9 @@ function renderList(p) {
     }
     html += `<li class="lrow">
       <div class="limg" data-open="${item.id}">${thumb(ch.pick, 48)}</div>
-      <div class="item-name" data-open="${item.id}">${esc(item.q)}</div>
+      <div class="item-name" data-open="${item.id}">${esc(nameOf(item))}</div>
       <div class="lprice" data-open="${item.id}">${right}</div>
-      <button class="x-btn ldel" data-del="${item.id}" aria-label="Remove ${esc(item.q)}">${ICON.x}</button>
+      <button class="x-btn ldel" data-del="${item.id}" aria-label="Remove ${esc(nameOf(item))}">${ICON.x}</button>
       <div class="item-sub lsub" data-open="${item.id}">${sub}</div>
       <div class="qty lqty" aria-label="Quantity"><button data-dec="${item.id}" aria-label="Less">−</button><span>${item.qty || 1}</span><button data-inc="${item.id}" aria-label="More">+</button></div>
     </li>`;
@@ -525,7 +555,7 @@ function storeListText(sid, rows) {
   const s = STORE_BY_ID[sid];
   const lines = rows.map(({ item, pick }) => {
     const q = item.qty || 1;
-    return `☐ ${q > 1 ? q + ' × ' : ''}${item.q}${pick ? ` — ${pick.name} ${money(effPrice(pick, q))}${pick.per ? '/' + pick.per : ''}` : ''}`;
+    return `☐ ${q > 1 ? q + ' × ' : ''}${nameOf(item)}${pick ? ` — ${pick.name} ${money(effPrice(pick, q))}${pick.per ? '/' + pick.per : ''}` : ''}`;
   });
   const tot = rows.reduce((a, { item, pick }) => a + (lineCost(item, pick) || 0), 0);
   return `${s ? s.name : sid} (${rows.length} items, ~${money(tot)})\n${lines.join('\n')}`;
@@ -580,10 +610,10 @@ function renderShop(p) {
       const q = item.qty || 1;
       const find = s.search ? `<a class="btn sm ghost" target="_blank" rel="noopener" href="${esc(s.search + encodeURIComponent(item.q))}" title="Find on ${esc(s.short)} site">${ICON.ext}</a>` : '';
       html += `<li class="item${item.done ? ' done' : ''}">
-        <input type="checkbox" class="check" data-done="${item.id}" ${item.done ? 'checked' : ''} aria-label="Got ${esc(item.q)}">
+        <input type="checkbox" class="check" data-done="${item.id}" ${item.done ? 'checked' : ''} aria-label="Got ${esc(nameOf(item))}">
         <div data-open="${item.id}" style="cursor:pointer">${thumb(pick, 44)}</div>
         <div class="item-main" data-open="${item.id}">
-          <div class="item-name">${q > 1 ? q + ' × ' : ''}${esc(item.q)}</div>
+          <div class="item-name">${q > 1 ? q + ' × ' : ''}${esc(nameOf(item))}</div>
           <div class="item-sub">${pick ? esc(pick.name) : 'No flyer price — check shelf'}${pick && pick.badges.length ? ' · ' + esc(pick.badges.join(', ')) : ''}${why === 'locked' ? ' · locked here' : ''}</div>
         </div>
         ${pick ? `<div class="price">${money(lineCost(item, pick))}${pick.per ? `<div class="tiny muted">${money(effPrice(pick, q))}/${pick.per} est.</div>` : q > 1 ? `<div class="tiny muted">${money(effPrice(pick, q))} ea</div>` : ''}</div>` : ''}
@@ -603,8 +633,8 @@ function renderShop(p) {
     p.unassigned.forEach(({ item }) => {
       const r = results[normText(item.q)];
       const status = !r || r.status === 'loading' ? '<span class="loading-dots">Checking</span>' : r.status === 'error' ? 'Price check failed' : 'No match';
-      html += `<li class="item"><div class="item-main" data-open="${item.id}"><div class="item-name">${esc(item.q)}</div><div class="item-sub">${status}</div></div>
-        <select style="width:auto" data-lock="${item.id}" aria-label="Store for ${esc(item.q)}"><option value="">Choose store…</option>${opts}</select></li>`;
+      html += `<li class="item"><div class="item-main" data-open="${item.id}"><div class="item-name">${esc(nameOf(item))}</div><div class="item-sub">${status}</div></div>
+        <select style="width:auto" data-lock="${item.id}" aria-label="Store for ${esc(nameOf(item))}"><option value="">Choose store…</option>${opts}</select></li>`;
     });
     html += `</ul></section>`;
   }
@@ -710,21 +740,22 @@ function renderSheet() {
   else if (!ch.cands.length) body = `<div class="empty small">No matches at your stores this week. Try a simpler name (edit above), un-hide items, or turn on more stores in Settings.</div>`;
   else body = ch.cands.map(c => candRow(c, ch.pick && c.key === ch.pick.key, item.id)).join('');
   const nHidden = (item.hidden || []).length;
-  const vkey = Object.keys(VARIANTS).find(k => normText(item.q) === k || normText(item.q).endsWith(' ' + k));
-  const variants = vkey ? VARIANTS[vkey].filter(v => normText(v) !== normText(item.q)) : [];
+  const nm = normText(nameOf(item));
+  const vkey = Object.keys(VARIANTS).find(k => nm === k || nm.endsWith(' ' + k));
+  const variants = vkey ? VARIANTS[vkey].filter(v => normText(v) !== nm) : [];
   const variantHtml = variants.length ? `<div><div class="tiny muted strong" style="margin-bottom:6px">Try also</div><div class="chips">${variants.map(v => {
-      const inList = state.items.some(i => normText(i.q) === normText(v));
+      const inList = state.items.some(i => normText(nameOf(i)) === normText(v));
       return `<button class="chip${inList ? ' on' : ''}" data-variant="${esc(v)}" ${inList ? 'disabled' : ''}>${inList ? '✓ ' : '+ '}${esc(v)}</button>`;
     }).join('')}</div><div class="tiny faint" style="margin-top:4px">Adds it as its own item so it gets its own cheapest store.</div></div>` : '';
   const hero = ch.pick ? `<div class="hero">${thumb(ch.pick, 96)}<div class="grow"><div class="row" style="gap:6px">${storeTag(ch.pick.storeId)}<span class="pill sale">${ch.why === 'picked' ? 'Your pick' : ch.why === 'locked' ? 'Store locked' : 'Cheapest'}</span></div>
       <div class="cand-name" style="margin-top:4px">${esc(ch.pick.name)}</div></div>${priceHtml(ch.pick, item.qty)}</div>` : '';
   const scrollTop = $('#sheet').scrollTop;
   $('#sheet').innerHTML = `<div class="sheet-grip"></div>
-    <div class="row between"><h2 style="font-size:18px;text-transform:capitalize">${esc(item.q)}</h2><button class="x-btn" data-close aria-label="Close">${ICON.x}</button></div>
+    <div class="row between"><h2 style="font-size:18px;text-transform:capitalize">${esc(nameOf(item))}</h2><button class="x-btn" data-close aria-label="Close">${ICON.x}</button></div>
     <div class="stack" style="margin-top:10px">
       ${hero}
       <div class="row wrap" style="gap:12px">
-        <label class="field grow">Item name<input type="text" id="sheetName" value="${esc(item.q)}"></label>
+        <label class="field grow">Item name<input type="text" id="sheetName" value="${esc(nameOf(item))}"></label>
         <label class="field" style="width:110px">Quantity<input type="number" id="sheetQty" min="1" max="99" value="${item.qty || 1}"></label>
       </div>
       <div class="row wrap" style="gap:12px">
@@ -735,6 +766,7 @@ function renderSheet() {
         <div class="seg" role="group" aria-label="Compare by"><button data-mode="price" class="${item.mode !== 'unit' ? 'on' : ''}">Sticker price</button><button data-mode="unit" class="${item.mode === 'unit' ? 'on' : ''}">Unit price</button></div>
         <div class="row">${item.pick ? `<button class="btn sm" data-unpick="${item.id}">Back to cheapest</button>` : ''}${nHidden ? `<button class="btn sm ghost" data-unhide="${item.id}">Show ${nHidden} hidden</button>` : ''}</div>
       </div>
+      ${item.prefer ? `<div class="tiny muted">Your favourite is ranked first when it's on: <b>${esc(item.prefer.map(p => p.replace(/\\b|\\s\?/g, '')).join(' · '))}</b>. <button class="btn sm ghost" data-noprefer="${item.id}">Just show cheapest</button></div>` : ''}
       ${variantHtml}
       <div class="tiny muted">${ch.cands.length} match${ch.cands.length === 1 ? '' : 'es'} across ${new Set(ch.cands.map(c => c.storeId)).size} stores. Prices marked /lb are per pound. “Use” pins that exact product; “Hide” removes a wrong match.</div>
       <div>${body}</div>
@@ -809,6 +841,7 @@ document.addEventListener('click', async e => {
     save(); return render();
   }
   if (d.unhide) { const it = findItem(d.unhide); it.hidden = []; save(); return render(); }
+  if (d.noprefer) { const it = findItem(d.noprefer); it.prefer = null; save(); return render(); }
   if (d.unpick) { const it = findItem(d.unpick); it.pick = null; save(); return render(); }
   if (d.mode) { const it = findItem(sheetItemId); it.mode = d.mode; it.pick = null; save(); return render(); }
   if (d.retry) { ensureResults(findItem(d.retry).q, true); return render(); }
@@ -901,7 +934,7 @@ document.addEventListener('change', e => {
     if (t.id === 'sheetExclude') { item.exclude = t.value.trim(); save(); return render(); }
     if (t.id === 'sheetName') {
       const q = t.value.trim();
-      if (q && q !== item.q) { item.q = q; item.pick = null; item.hidden = []; ensureResults(q); save(); return render(); }
+      if (q && q !== nameOf(item)) { item.q = q; item.label = null; item.loose = false; item.pick = null; item.hidden = []; ensureResults(q); save(); return render(); }
     }
   }
   if (t.id === 'cmpExclude') { compareExclude = t.value.trim(); return render(); }
