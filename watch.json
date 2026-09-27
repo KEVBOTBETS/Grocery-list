@@ -1,0 +1,155 @@
+{
+  "postal": "L1M2E2",
+  "ntfyTopic": "kevin-groceries-0ot20w8hgq",
+  "newLowWeeks": 8,
+  "stores": [
+    "walmart",
+    "superstore",
+    "loblaws",
+    "sobeys",
+    "metro",
+    "farmboy",
+    "freshco",
+    "costco",
+    "longos"
+  ],
+  "items": [
+    {
+      "name": "Lactose-free milk",
+      "q": "lactose free milk",
+      "exclude": "chocolate, cream, eggnog",
+      "prefer": [
+        "lactantia",
+        "\\b1\\s?%"
+      ],
+      "alert": {
+        "below": 5.0,
+        "match": "lactantia"
+      }
+    },
+    {
+      "name": "Stonemill sourdough bread",
+      "q": "stonemill sourdough",
+      "exclude": "bagel, bagels, buns, rolls",
+      "loose": true,
+      "prefer": [
+        "stonemill"
+      ],
+      "alert": {
+        "newLow": true
+      }
+    },
+    {
+      "name": "Ground beef lean",
+      "q": "lean ground beef",
+      "exclude": "extra lean, medium, regular, patties, burgers",
+      "alert": {
+        "newLow": true
+      }
+    },
+    {
+      "name": "Ground beef extra lean",
+      "q": "extra lean ground beef",
+      "exclude": "patties, burgers",
+      "alert": {
+        "newLow": true
+      }
+    },
+    {
+      "name": "Mini Oreos",
+      "q": "oreo mini",
+      "exclude": "golden, white fudge, puffs, cereal, ice cream, frozen, pudding",
+      "loose": true,
+      "alert": {
+        "newLow": true
+      }
+    },
+    {
+      "name": "Mini Oreos white",
+      "q": "oreo mini golden",
+      "exclude": "puffs, cereal, ice cream, frozen",
+      "loose": true
+    },
+    {
+      "name": "Fruitsations",
+      "q": "fruitsations",
+      "loose": true,
+      "alert": {
+        "newLow": true
+      }
+    },
+    {
+      "name": "Apple sauce pouches",
+      "q": "apple sauce",
+      "exclude": "arrowroot, biscuits, cake, muffin, bread",
+      "alert": {
+        "newLow": true
+      }
+    },
+    {
+      "name": "Spinach",
+      "q": "spinach",
+      "exclude": "dip, puree, pasta, ravioli, spanakopita, pie"
+    },
+    {
+      "name": "Apples",
+      "q": "apples"
+    },
+    {
+      "name": "Bananas",
+      "q": "bananas"
+    },
+    {
+      "name": "Milk",
+      "q": "milk"
+    },
+    {
+      "name": "Eggs",
+      "q": "eggs"
+    },
+    {
+      "name": "Butter",
+      "q": "butter"
+    },
+    {
+      "name": "Cheese",
+      "q": "cheese"
+    },
+    {
+      "name": "Yogurt",
+      "q": "yogurt"
+    },
+    {
+      "name": "Chicken breast",
+      "q": "chicken breast"
+    },
+    {
+      "name": "Coffee",
+      "q": "coffee"
+    },
+    {
+      "name": "Bread",
+      "q": "bread"
+    },
+    {
+      "name": "Orange juice",
+      "q": "orange juice"
+    },
+    {
+      "name": "Bacon",
+      "q": "bacon"
+    },
+    {
+      "name": "Strawberries",
+      "q": "strawberries"
+    },
+    {
+      "name": "Potatoes",
+      "q": "potatoes"
+    },
+    {
+      "name": "Pasta",
+      "q": "pasta"
+    }
+  ]
+}

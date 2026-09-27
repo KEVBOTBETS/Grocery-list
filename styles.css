@@ -78,7 +78,7 @@ main { max-width: 760px; margin: 0 auto; padding: 14px 16px 24px; outline: none;
 /* tabs */
 .tabs {
   position: fixed; left: 0; right: 0; bottom: 0; z-index: 20;
-  display: grid; grid-template-columns: repeat(4, 1fr);
+  display: grid; grid-template-columns: repeat(5, 1fr);
   background: var(--card); border-top: 1px solid var(--line);
   padding: 6px 6px calc(6px + env(safe-area-inset-bottom));
 }
@@ -266,3 +266,57 @@ label.field > input, label.field > select { margin-top: 4px; color: var(--ink); 
   body { padding: 0; background: #fff; }
   .card { box-shadow: none; break-inside: avoid; }
 }
+
+/* ---------- v2 features ---------- */
+code.code { font: 600 12.5px ui-monospace, SFMono-Regular, Menlo, monospace; background: var(--soft); border: 1px solid var(--line); padding: 1px 6px; border-radius: 6px; user-select: all; }
+.savebar {
+  width: 100%; margin-top: 8px; display: flex; justify-content: space-between; align-items: center; gap: 10px; text-align: left;
+  border: 1px solid var(--brand); background: var(--brand-soft); color: var(--ink); border-radius: 12px; padding: 10px 12px; font-size: 13.5px;
+}
+.savebar b { color: var(--good); }
+
+/* showdown bars: one measure, neutral bars, your split highlighted */
+.showdown { --bar: color-mix(in srgb, var(--ink) 22%, var(--card)); }
+.sd-row {
+  display: grid; grid-template-columns: 118px minmax(0, 1fr) 76px; align-items: center; gap: 10px; width: 100%;
+  border: 0; background: none; padding: 8px 4px; border-top: 1px solid var(--line); text-align: left; color: inherit; border-radius: 8px;
+}
+button.sd-row:hover { background: var(--soft); }
+.sd-split { border-top: 0; margin-top: 8px; }
+.sd-name { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.sd-name .store-tag { align-self: flex-start; }
+.sd-track { height: 12px; border-radius: 4px; background: transparent; }
+.sd-bar { height: 12px; border-radius: 0 4px 4px 0; background: var(--bar); }
+.sd-bar.is-split { background: var(--brand); }
+.sd-row.partial .sd-bar { background: color-mix(in srgb, var(--ink) 12%, var(--card)); }
+.sd-val { display: flex; flex-direction: column; align-items: flex-end; font-size: 14px; }
+table.cmp td.win { font-weight: 800; color: var(--good); }
+table.cmp td.win::before { content: "✓ "; }
+
+/* sparkline */
+.spark { width: 100%; height: 64px; display: block; overflow: visible; }
+.sp-line { fill: none; stroke: var(--brand); stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; vector-effect: non-scaling-stroke; }
+.sp-dot { fill: var(--card); stroke: var(--brand); stroke-width: 2; vector-effect: non-scaling-stroke; }
+.sp-now { fill: var(--brand); stroke: var(--card); stroke-width: 2; vector-effect: non-scaling-stroke; }
+
+/* scanner */
+.scanbox { position: relative; border-radius: 14px; overflow: hidden; background: #000; aspect-ratio: 4 / 3; max-height: 46vh; margin-top: 8px; }
+.scanbox video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.scanline { position: absolute; left: 10%; right: 10%; top: 50%; height: 2px; background: #ff5252; box-shadow: 0 0 10px #ff5252; animation: scanmove 2s ease-in-out infinite; }
+@keyframes scanmove { 0%, 100% { transform: translateY(-40px); } 50% { transform: translateY(40px); } }
+
+/* budget */
+.bbar { display: flex; height: 14px; border-radius: 7px; background: var(--soft); overflow: hidden; margin-top: 6px; gap: 2px; }
+.bb-spent { background: var(--brand); border-radius: 7px 0 0 7px; }
+.bb-plan { background: color-mix(in srgb, var(--brand) 40%, var(--card)); }
+.key { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 5px; vertical-align: -1px; }
+.key.k-spent { background: var(--brand); }
+.key.k-plan { background: color-mix(in srgb, var(--brand) 40%, var(--card)); }
+.weekchart { width: 100%; height: auto; display: block; }
+.wc-grid { stroke: var(--line); stroke-width: 1; }
+.wc-axis { fill: var(--faint); font-size: 9.5px; font-family: inherit; }
+.wc-bar { fill: var(--brand); }
+.wc-bar.over { fill: var(--warn); }
+.wc-col:hover .wc-bar { opacity: .8; }
+.wc-budget { stroke: var(--ink); stroke-width: 1.5; stroke-dasharray: 4 3; opacity: .55; }
+.meal .strong { font-size: 15px; }
