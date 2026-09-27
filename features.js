@@ -359,8 +359,7 @@ function storePick(item, sid) {
   const cs = candidatesFor(item).filter(c => c.storeId === sid);
   if (!cs.length) return null;
   if (item.pick) { const pinned = cs.find(c => c.key === item.pick); if (pinned) return pinned; }
-  if (item.prefer && item.prefer.length) return cs[0];
-  return cs.reduce((best, c) => lineCost(item, c) < lineCost(item, best) ? c : best, cs[0]);
+  return cs[0]; // same order as the split plan (favourite brand, then cheapest), so the comparison is like for like
 }
 function showdownData() {
   const priced = [];

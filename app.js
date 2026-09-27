@@ -52,7 +52,7 @@ const PRESETS = {
   'apple sauce pouches': { q: 'apple sauce', exclude: 'arrowroot, biscuits, cake, muffin, bread', loose: false },
   'ground beef lean': { q: 'lean ground beef', exclude: 'extra lean, medium, regular, patties, burgers', loose: false },
   'ground beef extra lean': { q: 'extra lean ground beef', exclude: 'patties, burgers', loose: false },
-  'spinach': { q: 'spinach', exclude: 'dip, puree, pasta, ravioli, spanakopita, pie', loose: false },
+  'spinach': { q: 'spinach', exclude: 'dip, puree, pasta, ravioli, tortelloni, tortellini, gnocchi, cannelloni, lasagna, quiche, wrap, spanakopita, pie, pizza', loose: false },
 };
 
 // "Try also" suggestions in an item's details
@@ -342,8 +342,13 @@ function candidatesForRaw(item) {
   if (!list.length && !item.loose) list = pass(true, true).map(c => ({ ...c, loose: true }));
   const qty = item.qty || 1;
   const key = c => perLb(c) ?? effPrice(c, qty);
-  // Flyer deals rank ahead of online regular prices; online prices fill in when an item isn't in any flyer.
-  const tier = c => c.source === 'flyer' ? 0 : 1;
+  // Cheapest wins whether it's a flyer deal or an online price — but a much smaller package than the
+  // others (a 473 ml milk next to 2-4 L jugs) is pushed down so it doesn't "win" just by being small.
+  const sizes = {};
+  list.forEach(c => { if (c.size) (sizes[c.size.dim] = sizes[c.size.dim] || []).push(c.size.base); });
+  const med = {};
+  for (const [dim, arr] of Object.entries(sizes)) { const a = arr.slice().sort((x, y) => x - y); med[dim] = a.length >= 3 ? a[a.length >> 1] : 0; }
+  const tier = c => (c.size && med[c.size.dim] && c.size.base < med[c.size.dim] * 0.4) ? 1 : 0;
   if (item.mode === 'unit') {
     const counts = {};
     list.forEach(c => { const u = unitValue(c); if (u) counts[u.dim] = (counts[u.dim] || 0) + 1; });

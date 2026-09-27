@@ -89,7 +89,7 @@
     {
       "name": "Spinach",
       "q": "spinach",
-      "exclude": "dip, puree, pasta, ravioli, spanakopita, pie"
+      "exclude": "dip, puree, pasta, ravioli, tortelloni, tortellini, gnocchi, cannelloni, lasagna, quiche, wrap, spanakopita, pie, pizza"
     },
     {
       "name": "Apples",
