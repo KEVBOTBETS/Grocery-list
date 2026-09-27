@@ -1,0 +1,454 @@
+{
+ "items": {
+  "apple sauce pouches": {
+   "name": "Apple sauce pouches",
+   "weeks": {
+    "2026-09-24": {
+     "p": 2.47,
+     "per": null,
+     "product": "Mott's Fruitsations Unsweetened Peach Medley Apple Sauce",
+     "source": "ecom",
+     "store": "walmart",
+     "stores": {
+      "walmart": 2.47
+     }
+    }
+   }
+  },
+  "apples": {
+   "name": "Apples",
+   "weeks": {
+    "2026-09-24": {
+     "p": 0.98,
+     "per": "lb",
+     "product": "Bulk Gala apples",
+     "source": "flyer",
+     "store": "walmart",
+     "stores": {
+      "costco": 44.99,
+      "farmboy": 1.99,
+      "freshco": 1.49,
+      "loblaws": 0.98,
+      "longos": 3.49,
+      "metro": 2.49,
+      "sobeys": 1.29,
+      "superstore": 1.5,
+      "walmart": 0.98
+     }
+    }
+   }
+  },
+  "bacon": {
+   "name": "Bacon",
+   "weeks": {
+    "2026-09-24": {
+     "p": 3.97,
+     "per": null,
+     "product": "Great Value bacon",
+     "source": "flyer",
+     "store": "walmart",
+     "stores": {
+      "costco": 69.99,
+      "farmboy": 4.99,
+      "loblaws": 6.0,
+      "longos": 6.99,
+      "metro": 6.99,
+      "sobeys": 4.99,
+      "superstore": 12.0,
+      "walmart": 3.97
+     }
+    }
+   }
+  },
+  "bananas": {
+   "name": "Bananas",
+   "weeks": {
+    "2026-09-24": {
+     "p": 0.35,
+     "per": null,
+     "product": "Banana",
+     "source": "ecom",
+     "store": "walmart",
+     "stores": {
+      "walmart": 0.35
+     }
+    }
+   }
+  },
+  "bread": {
+   "name": "Bread",
+   "weeks": {
+    "2026-09-24": {
+     "p": 0.99,
+     "per": null,
+     "product": "CEDAR BAKERY LEBANESE STYLE PITA BREAD",
+     "source": "flyer",
+     "store": "metro",
+     "stores": {
+      "farmboy": 2.99,
+      "freshco": 2.0,
+      "loblaws": 3.5,
+      "longos": 2.29,
+      "metro": 0.99,
+      "sobeys": 2.67,
+      "superstore": 2.5,
+      "walmart": 2.68
+     }
+    }
+   }
+  },
+  "butter": {
+   "name": "Butter",
+   "weeks": {
+    "2026-09-24": {
+     "p": 4.97,
+     "per": null,
+     "product": "Gay Lea butter",
+     "source": "flyer",
+     "store": "walmart",
+     "stores": {
+      "loblaws": 4.99,
+      "sobeys": 5.99,
+      "walmart": 4.97
+     }
+    }
+   }
+  },
+  "cheese": {
+   "name": "Cheese",
+   "weeks": {
+    "2026-09-24": {
+     "p": 3.47,
+     "per": null,
+     "product": "Black Diamond cheese slices",
+     "source": "flyer",
+     "store": "walmart",
+     "stores": {
+      "costco": 9.89,
+      "farmboy": 3.99,
+      "freshco": 3.99,
+      "loblaws": 6.0,
+      "longos": 3.49,
+      "metro": 4.99,
+      "sobeys": 3.49,
+      "superstore": 4.0,
+      "walmart": 3.47
+     }
+    }
+   }
+  },
+  "chicken breast": {
+   "name": "Chicken breast",
+   "weeks": {
+    "2026-09-24": {
+     "p": 4.99,
+     "per": "lb",
+     "product": "Fresh, Canadian Split Chicken Breast",
+     "source": "flyer",
+     "store": "farmboy",
+     "stores": {
+      "farmboy": 4.99,
+      "longos": 8.99,
+      "metro": 13.49,
+      "sobeys": 5.99,
+      "superstore": 9.79,
+      "walmart": 7.96
+     }
+    }
+   }
+  },
+  "coffee": {
+   "name": "Coffee",
+   "weeks": {
+    "2026-09-24": {
+     "p": 5.99,
+     "per": null,
+     "product": "MAXWELL HOUSE INSTANT COFFEE",
+     "source": "flyer",
+     "store": "metro",
+     "stores": {
+      "costco": 22.49,
+      "farmboy": 7.97,
+      "freshco": 6.44,
+      "loblaws": 6.0,
+      "longos": 7.49,
+      "metro": 5.99,
+      "sobeys": 7.99,
+      "superstore": 7.25,
+      "walmart": 22.86
+     }
+    }
+   }
+  },
+  "eggs": {
+   "name": "Eggs",
+   "weeks": {
+    "2026-09-24": {
+     "p": 3.99,
+     "per": null,
+     "product": "Gray Ridge Large White Eggs",
+     "source": "flyer",
+     "store": "longos",
+     "stores": {
+      "farmboy": 4.88,
+      "freshco": 4.77,
+      "longos": 3.99,
+      "metro": 4.98,
+      "sobeys": 4.99,
+      "superstore": 4.44,
+      "walmart": 6.22
+     }
+    }
+   }
+  },
+  "fruitsations": {
+   "name": "Fruitsations",
+   "weeks": {
+    "2026-09-24": {
+     "p": 9.99,
+     "per": null,
+     "product": "Mott's Fruitsations fruit flavoured snacks",
+     "source": "flyer",
+     "store": "costco",
+     "stores": {
+      "costco": 9.99,
+      "superstore": 12.0,
+      "walmart": 2.47
+     }
+    }
+   }
+  },
+  "ground beef extra lean": {
+   "name": "Ground beef extra lean",
+   "weeks": {
+    "2026-09-24": {
+     "p": 9.99,
+     "per": "lb",
+     "product": "Fresh Extra Lean Ground Beef - Big Earn",
+     "source": "flyer",
+     "store": "sobeys",
+     "stores": {
+      "loblaws": 10.5,
+      "sobeys": 9.99,
+      "superstore": 13.0,
+      "walmart": 8.98
+     }
+    }
+   }
+  },
+  "ground beef lean": {
+   "name": "Ground beef lean",
+   "weeks": {
+    "2026-09-24": {
+     "p": 7.98,
+     "per": null,
+     "product": "Ground Beef Lean Tube, Your Fresh Market",
+     "source": "ecom",
+     "store": "walmart",
+     "stores": {
+      "walmart": 7.98
+     }
+    }
+   }
+  },
+  "lactose free milk": {
+   "name": "Lactose-free milk",
+   "weeks": {
+    "2026-09-24": {
+     "p": 6.68,
+     "per": null,
+     "product": "Natrel Lactose Free 1% Milk 2l 2 L",
+     "source": "ecom",
+     "store": "walmart",
+     "stores": {
+      "walmart": 6.68
+     }
+    }
+   }
+  },
+  "milk": {
+   "name": "Milk",
+   "weeks": {
+    "2026-09-24": {
+     "p": 4.57,
+     "per": null,
+     "product": "Natrel fine-filtered milk",
+     "source": "flyer",
+     "store": "walmart",
+     "stores": {
+      "costco": 19.99,
+      "loblaws": 6.0,
+      "longos": 6.49,
+      "metro": 7.99,
+      "superstore": 5.5,
+      "walmart": 4.57
+     }
+    }
+   }
+  },
+  "mini oreos": {
+   "name": "Mini Oreos",
+   "weeks": {
+    "2026-09-24": {
+     "p": 2.98,
+     "per": null,
+     "product": "Oreo Mini Original Chocolate Sandwich Cookies, Peanut Free Snack, School Snacks,",
+     "source": "ecom",
+     "store": "walmart",
+     "stores": {
+      "walmart": 2.98
+     }
+    }
+   }
+  },
+  "mini oreos white": {
+   "name": "Mini Oreos white",
+   "weeks": {
+    "2026-09-24": {
+     "p": 2.98,
+     "per": null,
+     "product": "Oreo, Mini Golden Cookies, Snack Pack Of 6, 25g 150 G",
+     "source": "ecom",
+     "store": "walmart",
+     "stores": {
+      "walmart": 2.98
+     }
+    }
+   }
+  },
+  "orange juice": {
+   "name": "Orange juice",
+   "weeks": {
+    "2026-09-24": {
+     "p": 3.99,
+     "per": null,
+     "product": "Farm Boy Juice Orange & Mango 355 ml (bottle)",
+     "source": "flyer",
+     "store": "sobeys",
+     "stores": {
+      "farmboy": 5.77,
+      "loblaws": 5.0,
+      "metro": 7.49,
+      "sobeys": 3.99,
+      "walmart": 2.97
+     }
+    }
+   }
+  },
+  "pasta": {
+   "name": "Pasta",
+   "weeks": {
+    "2026-09-24": {
+     "p": 1.64,
+     "per": null,
+     "product": "Chef Boyardee pasta",
+     "source": "flyer",
+     "store": "walmart",
+     "stores": {
+      "costco": 12.99,
+      "loblaws": 11.0,
+      "longos": 1.99,
+      "metro": 1.69,
+      "sobeys": 1.99,
+      "superstore": 1.97,
+      "walmart": 1.64
+     }
+    }
+   }
+  },
+  "potatoes": {
+   "name": "Potatoes",
+   "weeks": {
+    "2026-09-24": {
+     "p": 1.99,
+     "per": null,
+     "product": "WHITE POTATOES",
+     "source": "flyer",
+     "store": "metro",
+     "stores": {
+      "farmboy": 2.99,
+      "loblaws": 2.0,
+      "longos": 2.99,
+      "metro": 1.99,
+      "superstore": 2.0,
+      "walmart": 2.98
+     }
+    }
+   }
+  },
+  "spinach": {
+   "name": "Spinach",
+   "weeks": {
+    "2026-09-24": {
+     "p": 1.67,
+     "per": null,
+     "product": "Bunched Spinach",
+     "source": "flyer",
+     "store": "farmboy",
+     "stores": {
+      "farmboy": 1.67,
+      "freshco": 1.99,
+      "sobeys": 2.99,
+      "superstore": 2.5,
+      "walmart": 0.97
+     }
+    }
+   }
+  },
+  "stonemill sourdough bread": {
+   "name": "Stonemill sourdough bread",
+   "weeks": {
+    "2026-09-24": {
+     "p": 5.48,
+     "per": null,
+     "product": "Stonemill\u00ae Authentic Sourdough Rye Multigrain Sliced Bread",
+     "source": "ecom",
+     "store": "walmart",
+     "stores": {
+      "walmart": 5.48
+     }
+    }
+   }
+  },
+  "strawberries": {
+   "name": "Strawberries",
+   "weeks": {
+    "2026-09-24": {
+     "p": 4.99,
+     "per": null,
+     "product": "Fresh Strawberries",
+     "source": "flyer",
+     "store": "longos",
+     "stores": {
+      "longos": 4.99,
+      "walmart": 0.97
+     }
+    }
+   }
+  },
+  "yogurt": {
+   "name": "Yogurt",
+   "weeks": {
+    "2026-09-24": {
+     "p": 2.27,
+     "per": null,
+     "product": "Hans dahi natural yogurt",
+     "source": "flyer",
+     "store": "walmart",
+     "stores": {
+      "farmboy": 5.49,
+      "freshco": 6.5,
+      "loblaws": 3.0,
+      "longos": 4.99,
+      "metro": 6.49,
+      "sobeys": 3.49,
+      "superstore": 3.33,
+      "walmart": 2.27
+     }
+    }
+   }
+  }
+ },
+ "postal": "L1M2E2",
+ "updated": "2026-09-27T17:22:30.436168+00:00"
+}
