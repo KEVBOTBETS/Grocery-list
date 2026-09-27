@@ -3,7 +3,7 @@
    Everything is saved on this device (localStorage). */
 'use strict';
 
-const APP_VERSION = '2.0.1';
+const APP_VERSION = '2.0.2';
 const API = 'https://backflipp.wishabi.com/flipp/items/search';
 const CACHE_TTL = 6 * 3600 * 1000; // re-check prices every 6 hours
 const STATE_KEY = 'gl.state.v1';
@@ -283,6 +283,32 @@ function relevant(name, q, exclude, loose) {
   return true;
 }
 
+// Online catalogues are huge, so an online match must also look like the product itself: what follows the
+// searched words has to be the end of the name, a size, a comma/dash, or a describing word
+// ("Gay Lea Butter, 454 g" yes; "Croley Butter Cream" no).
+const ONLINE_OK_NEXT = new Set(['slices', 'sliced', 'shredded', 'block', 'blocks', 'pack', 'packs', 'bag', 'bags', 'box', 'value', 'family', 'size', 'club',
+  'jumbo', 'large', 'medium', 'small', 'original', 'organic', 'natural', 'grade', 'bunch', 'bunched', 'loose', 'bulk', 'each', 'ea', 'count', 'ct', 'pk',
+  'tub', 'jug', 'bottle', 'carton', 'can', 'cans', 'whole', 'lean', 'boneless', 'skinless', 'fillets', 'fillet', 'thighs', 'breasts', 'salted', 'unsalted',
+  'white', 'brown', 'red', 'green', 'yellow', 'plain', 'regular', 'classic', 'light', 'free', 'range', 'omega', 'eggs', 'in', 'with', 'by', 'from', 'product',
+  'multipack', 'variety', 'snack', 'snacks', 'pouches', 'pouch', 'cups', 'unsweetened', 'sweetened', 'lb', 'lbs', 'kg', 'g', 'l', 'ml', 'x', 'bread', 'loaf']);
+function onlineHeadOk(name, q) {
+  const raw = String(name || '').toLowerCase();
+  const words = withSyn(normText(name)).split(' ').filter(Boolean);
+  const toks = withSyn(normText(q)).split(' ').filter(t => t.length > 1 && !STOP.has(t) && !/^\d/.test(t));
+  if (!toks.length) return true;
+  const stemOf = t => t.length > 3 ? t.replace(/ies$/, '').replace(/(es|s)$/, '') : t;
+  let last = -1, lastStem = '';
+  for (const t of toks) {
+    const st = stemOf(t);
+    const idx = words.findIndex(w => w.startsWith(st) && w.length - st.length <= 3);
+    if (idx > last) { last = idx; lastStem = st; }
+  }
+  if (last < 0) return false;
+  const next = words[last + 1];
+  if (!next || /^\d/.test(next) || ONLINE_OK_NEXT.has(next)) return true;
+  return new RegExp(escRe(lastStem) + '[a-z]{0,3}\\s*[,\\-–(|:®™]').test(raw);
+}
+
 // price for one unit at this list quantity (handles "2 for $5, or $2.99 each")
 function effPrice(c, qty) {
   qty = qty || 1;
@@ -328,6 +354,7 @@ function candidatesForRaw(item) {
       if (c.upcoming && !s.upcoming) return false;
       if (hidden.has(c.key)) return false;
       if (!relevant(c.name, item.q, item.exclude, loose)) return false;
+      if (c.source === 'ecom' && !loose && !onlineHeadOk(c.name, item.q)) return false;
       const dk = c.storeId + '|' + normText(c.name) + '|' + c.price;
       if (seen.has(dk)) return false;
       seen.add(dk);

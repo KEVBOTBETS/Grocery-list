@@ -1,5 +1,5 @@
 // Network-first cache of the app shell so it opens offline. Price lookups are never cached here.
-const CACHE = 'grocery-list-v5';
+const CACHE = 'grocery-list-v6';
 const SHELL = ['./', 'index.html', 'styles.css', 'app.js', 'features.js', 'manifest.webmanifest', 'icon.svg', 'icon-192.png'];
 self.addEventListener('install', e => { e.waitUntil(caches.open(CACHE).then(c => c.addAll(SHELL)).then(() => self.skipWaiting())); });
 self.addEventListener('activate', e => {
