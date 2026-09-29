@@ -83,6 +83,7 @@
      "source": "flyer",
      "store": "metro",
      "stores": {
+      "costco": 9.99,
       "farmboy": 2.99,
       "freshco": 2.0,
       "loblaws": 3.5,
@@ -164,6 +165,7 @@
      "source": "ecom",
      "store": "walmart",
      "stores": {
+      "costco": 15.49,
       "farmboy": 7.97,
       "freshco": 6.44,
       "loblaws": 6.0,
@@ -207,6 +209,7 @@
      "source": "ecom",
      "store": "walmart",
      "stores": {
+      "costco": 12.99,
       "superstore": 12.0,
       "walmart": 2.47
      }
@@ -383,7 +386,7 @@
       "freshco": 1.99,
       "sobeys": 2.99,
       "superstore": 2.5,
-      "walmart": 2.38
+      "walmart": 1.98
      }
     }
    }
@@ -429,6 +432,7 @@
      "source": "flyer",
      "store": "walmart",
      "stores": {
+      "costco": 199.99,
       "farmboy": 5.49,
       "freshco": 6.5,
       "loblaws": 3.0,
@@ -443,5 +447,5 @@
   }
  },
  "postal": "L1M2E2",
- "updated": "2026-09-28T11:24:30.365094+00:00"
+ "updated": "2026-09-29T11:24:31.078965+00:00"
 }
