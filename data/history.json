@@ -123,12 +123,12 @@
      "source": "flyer",
      "store": "walmart",
      "stores": {
-      "farmboy": 3.99,
+      "farmboy": 9.03,
       "freshco": 3.99,
-      "loblaws": 6.0,
-      "longos": 3.49,
+      "loblaws": 6.5,
+      "longos": 4.99,
       "metro": 4.99,
-      "sobeys": 3.49,
+      "sobeys": 4.77,
       "superstore": 4.0,
       "walmart": 3.47
      }
@@ -171,7 +171,7 @@
       "loblaws": 6.0,
       "longos": 7.49,
       "metro": 5.99,
-      "sobeys": 7.99,
+      "sobeys": 15.97,
       "superstore": 7.25,
       "walmart": 5.77
      }
@@ -395,13 +395,13 @@
    "name": "Stonemill sourdough bread",
    "weeks": {
     "2026-09-24": {
-     "p": 5.48,
+     "p": 4.97,
      "per": null,
-     "product": "Stonemill\u00ae Authentic Sourdough Rye Multigrain Sliced Bread",
+     "product": "Stonemill\u00ae Bakehouse Sourdough Bread",
      "source": "ecom",
      "store": "walmart",
      "stores": {
-      "walmart": 5.48
+      "walmart": 4.97
      }
     }
    }
@@ -432,7 +432,6 @@
      "source": "flyer",
      "store": "walmart",
      "stores": {
-      "costco": 199.99,
       "farmboy": 5.49,
       "freshco": 6.5,
       "loblaws": 3.0,
@@ -447,5 +446,5 @@
   }
  },
  "postal": "L1M2E2",
- "updated": "2026-09-29T11:24:31.078965+00:00"
+ "updated": "2026-09-30T11:24:00.019179+00:00"
 }
