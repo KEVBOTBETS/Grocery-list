@@ -14,15 +14,15 @@
      }
     },
     "2026-10-01": {
-     "p": 2.47,
+     "p": 2.97,
      "per": null,
-     "product": "Mott's Fruitsations Unsweetened Peach Medley Apple Sauce",
+     "product": "Mott's Fruitsations Original 100% Apple Sauce 620 Ml",
      "source": "ecom",
      "store": "walmart",
      "stores": {
       "farmboy": 4.99,
       "sobeys": 2.99,
-      "walmart": 2.47
+      "walmart": 2.97
      }
     }
    }
@@ -59,7 +59,7 @@
       "loblaws": 8.0,
       "longos": 2.49,
       "metro": 0.99,
-      "sobeys": 1.99,
+      "sobeys": 1.29,
       "superstore": 8.0,
       "walmart": 0.39
      }
@@ -227,9 +227,9 @@
      "source": "ecom",
      "store": "walmart",
      "stores": {
-      "farmboy": 5.99,
+      "farmboy": 4.49,
       "freshco": 3.99,
-      "loblaws": 4.99,
+      "loblaws": 3.75,
       "longos": 3.99,
       "metro": 4.99,
       "sobeys": 3.99,
@@ -341,6 +341,7 @@
      "store": "walmart",
      "stores": {
       "longos": 3.99,
+      "sobeys": 7.29,
       "walmart": 3.93
      }
     }
@@ -362,14 +363,14 @@
      }
     },
     "2026-10-01": {
-     "p": 2.47,
+     "p": 2.97,
      "per": null,
-     "product": "Mott's Fruitsations Mott\u2019s Fruitsations Original Apple Sauce 624 G",
+     "product": "Mott's Fruitsations Mott\u2019s Fruitsations Unsweetened Apple Sauce 620 Ml",
      "source": "ecom",
      "store": "walmart",
      "stores": {
       "costco": 12.99,
-      "walmart": 2.47
+      "walmart": 2.97
      }
     }
    }
@@ -417,13 +418,13 @@
      }
     },
     "2026-10-01": {
-     "p": 8.92,
+     "p": 8.78,
      "per": null,
-     "product": "Lean Ground Beef, Your Fresh Market",
+     "product": "Barakah Meadows Lean Ground Beef",
      "source": "ecom",
      "store": "walmart",
      "stores": {
-      "walmart": 8.92
+      "walmart": 8.78
      }
     }
    }
@@ -674,6 +675,7 @@
      "stores": {
       "freshco": 1.99,
       "metro": 1.49,
+      "sobeys": 4.99,
       "walmart": 1.98
      }
     }
@@ -774,5 +776,5 @@
   }
  },
  "postal": "L1M2E2",
- "updated": "2026-10-01T11:25:52.195477+00:00"
+ "updated": "2026-10-02T11:24:34.608245+00:00"
 }
