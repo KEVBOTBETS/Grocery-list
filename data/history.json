@@ -48,7 +48,7 @@
      }
     },
     "2026-10-01": {
-     "p": 0.39,
+     "p": 0.34,
      "per": null,
      "product": "Apple, Gala",
      "source": "ecom",
@@ -61,7 +61,7 @@
       "metro": 0.99,
       "sobeys": 1.29,
       "superstore": 8.0,
-      "walmart": 0.39
+      "walmart": 0.34
      }
     }
    }
@@ -114,13 +114,13 @@
      }
     },
     "2026-10-01": {
-     "p": 0.35,
+     "p": 0.29,
      "per": null,
      "product": "Banana",
      "source": "ecom",
      "store": "walmart",
      "stores": {
-      "walmart": 0.35
+      "walmart": 0.29
      }
     }
    }
@@ -227,13 +227,13 @@
      "source": "ecom",
      "store": "walmart",
      "stores": {
-      "farmboy": 4.49,
+      "farmboy": 5.99,
       "freshco": 3.99,
-      "loblaws": 3.75,
+      "loblaws": 4.99,
       "longos": 3.99,
       "metro": 4.99,
-      "sobeys": 3.99,
-      "superstore": 3.99,
+      "sobeys": 5.49,
+      "superstore": 4.5,
       "walmart": 3.47
      }
     }
@@ -417,13 +417,13 @@
      }
     },
     "2026-10-01": {
-     "p": 8.92,
+     "p": 8.78,
      "per": null,
-     "product": "Lean Ground Beef, Your Fresh Market",
+     "product": "Barakah Meadows Lean Ground Beef",
      "source": "ecom",
      "store": "walmart",
      "stores": {
-      "walmart": 8.92
+      "walmart": 8.78
      }
     }
    }
@@ -562,16 +562,16 @@
      }
     },
     "2026-10-01": {
-     "p": 4.48,
+     "p": 4.46,
      "per": null,
-     "product": "Oasis Orange Pure Breakfast Juice 8 X 200 Ml 200 Ml",
+     "product": "Oasis Orange Mango Fruit Juice 1.6 L 1.6 L",
      "source": "ecom",
      "store": "walmart",
      "stores": {
       "freshco": 5.0,
       "sobeys": 4.99,
       "superstore": 6.99,
-      "walmart": 4.48
+      "walmart": 4.46
      }
     }
    }
@@ -774,5 +774,5 @@
   }
  },
  "postal": "L1M2E2",
- "updated": "2026-10-06T11:25:40.217529+00:00"
+ "updated": "2026-10-07T11:26:14.393317+00:00"
 }
