@@ -24,6 +24,16 @@
       "sobeys": 2.99,
       "walmart": 2.97
      }
+    },
+    "2026-10-08": {
+     "p": 2.97,
+     "per": null,
+     "product": "Mott's Fruitsations Original 100% Apple Sauce 620 Ml",
+     "source": "ecom",
+     "store": "walmart",
+     "stores": {
+      "walmart": 2.97
+     }
     }
    }
   },
@@ -63,6 +73,22 @@
       "superstore": 8.0,
       "walmart": 0.34
      }
+    },
+    "2026-10-08": {
+     "p": 0.34,
+     "per": null,
+     "product": "Apple, Gala",
+     "source": "ecom",
+     "store": "walmart",
+     "stores": {
+      "farmboy": 2.45,
+      "freshco": 1.49,
+      "loblaws": 2.0,
+      "longos": 2.49,
+      "metro": 1.99,
+      "sobeys": 1.99,
+      "walmart": 0.34
+     }
     }
    }
   },
@@ -97,6 +123,21 @@
       "sobeys": 2.99,
       "walmart": 3.97
      }
+    },
+    "2026-10-08": {
+     "p": 3.97,
+     "per": null,
+     "product": "Great Value Naturally Smoked Bacon",
+     "source": "ecom",
+     "store": "walmart",
+     "stores": {
+      "farmboy": 4.99,
+      "longos": 3.99,
+      "metro": 3.99,
+      "sobeys": 4.49,
+      "superstore": 5.0,
+      "walmart": 3.97
+     }
     }
    }
   },
@@ -114,6 +155,16 @@
      }
     },
     "2026-10-01": {
+     "p": 0.29,
+     "per": null,
+     "product": "Banana",
+     "source": "ecom",
+     "store": "walmart",
+     "stores": {
+      "walmart": 0.29
+     }
+    },
+    "2026-10-08": {
      "p": 0.29,
      "per": null,
      "product": "Banana",
@@ -163,6 +214,24 @@
       "superstore": 3.29,
       "walmart": 1.97
      }
+    },
+    "2026-10-08": {
+     "p": 1.97,
+     "per": null,
+     "product": "Your Fresh Market Italian-Style Crusty Bread",
+     "source": "ecom",
+     "store": "walmart",
+     "stores": {
+      "costco": 9.99,
+      "farmboy": 2.99,
+      "freshco": 2.49,
+      "loblaws": 3.0,
+      "longos": 3.79,
+      "metro": 3.0,
+      "sobeys": 2.67,
+      "superstore": 3.5,
+      "walmart": 1.97
+     }
     }
    }
   },
@@ -195,6 +264,19 @@
       "metro": 4.99,
       "sobeys": 2.99,
       "superstore": 4.97,
+      "walmart": 4.47
+     }
+    },
+    "2026-10-08": {
+     "p": 4.47,
+     "per": null,
+     "product": "Gay Lea Foods Light Spreadables Butter 227g",
+     "source": "ecom",
+     "store": "walmart",
+     "stores": {
+      "freshco": 6.99,
+      "longos": 7.99,
+      "sobeys": 4.99,
       "walmart": 4.47
      }
     }
@@ -236,6 +318,23 @@
       "superstore": 4.5,
       "walmart": 3.47
      }
+    },
+    "2026-10-08": {
+     "p": 3.47,
+     "per": null,
+     "product": "Black Diamond cheese slices",
+     "source": "flyer",
+     "store": "walmart",
+     "stores": {
+      "farmboy": 10.99,
+      "freshco": 4.99,
+      "loblaws": 4.99,
+      "longos": 3.99,
+      "metro": 4.49,
+      "sobeys": 4.88,
+      "superstore": 6.5,
+      "walmart": 3.47
+     }
     }
    }
   },
@@ -268,6 +367,18 @@
       "metro": 3.99,
       "sobeys": 6.49,
       "superstore": 3.98,
+      "walmart": 2.98
+     }
+    },
+    "2026-10-08": {
+     "p": 2.98,
+     "per": null,
+     "product": "Your Fresh Market Smoked Chicken Breast",
+     "source": "ecom",
+     "store": "walmart",
+     "stores": {
+      "metro": 7.99,
+      "superstore": 10.0,
       "walmart": 2.98
      }
     }
@@ -311,6 +422,23 @@
       "superstore": 3.0,
       "walmart": 5.77
      }
+    },
+    "2026-10-08": {
+     "p": 4.98,
+     "per": null,
+     "product": "International Delight Reese's iced coffee",
+     "source": "flyer",
+     "store": "walmart",
+     "stores": {
+      "costco": 15.49,
+      "freshco": 15.99,
+      "loblaws": 16.0,
+      "longos": 4.99,
+      "metro": 6.49,
+      "sobeys": 12.99,
+      "superstore": 20.0,
+      "walmart": 4.98
+     }
     }
    }
   },
@@ -344,6 +472,21 @@
       "sobeys": 7.29,
       "walmart": 3.93
      }
+    },
+    "2026-10-08": {
+     "p": 3.93,
+     "per": null,
+     "product": "NO NAME\u00ae LARGE GRADE A WHITE EGGS, 12'S",
+     "source": "flyer",
+     "store": "loblaws",
+     "stores": {
+      "farmboy": 6.77,
+      "freshco": 7.99,
+      "loblaws": 3.93,
+      "longos": 3.99,
+      "sobeys": 7.99,
+      "walmart": 3.93
+     }
     }
    }
   },
@@ -363,6 +506,16 @@
      }
     },
     "2026-10-01": {
+     "p": 2.97,
+     "per": null,
+     "product": "Mott's Fruitsations Mott\u2019s Fruitsations Unsweetened Apple Sauce 620 Ml",
+     "source": "ecom",
+     "store": "walmart",
+     "stores": {
+      "walmart": 2.97
+     }
+    },
+    "2026-10-08": {
      "p": 2.97,
      "per": null,
      "product": "Mott's Fruitsations Mott\u2019s Fruitsations Unsweetened Apple Sauce 620 Ml",
@@ -400,6 +553,16 @@
       "superstore": 9.5,
       "walmart": 8.98
      }
+    },
+    "2026-10-08": {
+     "p": 8.98,
+     "per": null,
+     "product": "Extra Lean Ground Beef, Your Fresh Market",
+     "source": "ecom",
+     "store": "walmart",
+     "stores": {
+      "walmart": 8.98
+     }
     }
    }
   },
@@ -423,6 +586,17 @@
      "source": "ecom",
      "store": "walmart",
      "stores": {
+      "walmart": 8.78
+     }
+    },
+    "2026-10-08": {
+     "p": 6.99,
+     "per": null,
+     "product": "Fresh Lean Ground Beef",
+     "source": "flyer",
+     "store": "sobeys",
+     "stores": {
+      "sobeys": 6.99,
       "walmart": 8.78
      }
     }
@@ -452,6 +626,17 @@
       "loblaws": 6.5,
       "metro": 6.49,
       "superstore": 6.25,
+      "walmart": 6.68
+     }
+    },
+    "2026-10-08": {
+     "p": 6.68,
+     "per": null,
+     "product": "Natrel Lactose Free 1% Milk 2l 2 L",
+     "source": "ecom",
+     "store": "walmart",
+     "stores": {
+      "sobeys": 7.19,
       "walmart": 6.68
      }
     }
@@ -490,6 +675,21 @@
       "superstore": 6.25,
       "walmart": 3.64
      }
+    },
+    "2026-10-08": {
+     "p": 2.49,
+     "per": null,
+     "product": "CARNATION MILK",
+     "source": "flyer",
+     "store": "metro",
+     "stores": {
+      "loblaws": 4.5,
+      "longos": 6.49,
+      "metro": 2.49,
+      "sobeys": 7.19,
+      "superstore": 4.25,
+      "walmart": 3.64
+     }
     }
    }
   },
@@ -516,6 +716,16 @@
       "superstore": 9.49,
       "walmart": 2.98
      }
+    },
+    "2026-10-08": {
+     "p": 2.98,
+     "per": null,
+     "product": "Oreo Mini Original Chocolate Sandwich Cookies, Peanut Free Snack, School Snacks,",
+     "source": "ecom",
+     "store": "walmart",
+     "stores": {
+      "walmart": 2.98
+     }
     }
    }
   },
@@ -533,6 +743,16 @@
      }
     },
     "2026-10-01": {
+     "p": 2.98,
+     "per": null,
+     "product": "Oreo, Mini Golden Cookies, Snack Pack Of 6, 25g 150 G",
+     "source": "ecom",
+     "store": "walmart",
+     "stores": {
+      "walmart": 2.98
+     }
+    },
+    "2026-10-08": {
      "p": 2.98,
      "per": null,
      "product": "Oreo, Mini Golden Cookies, Snack Pack Of 6, 25g 150 G",
@@ -573,6 +793,19 @@
       "superstore": 6.99,
       "walmart": 4.46
      }
+    },
+    "2026-10-08": {
+     "p": 3.5,
+     "per": null,
+     "product": "PC\u00ae LEMONADE, 1.36 L OR NO NAME ORANGE JUICE BLENDS, 1.75 L",
+     "source": "flyer",
+     "store": "superstore",
+     "stores": {
+      "freshco": 5.0,
+      "sobeys": 3.99,
+      "superstore": 3.5,
+      "walmart": 4.46
+     }
     }
    }
   },
@@ -606,6 +839,20 @@
       "metro": 1.69,
       "sobeys": 6.49,
       "superstore": 3.5,
+      "walmart": 1.77
+     }
+    },
+    "2026-10-08": {
+     "p": 1.5,
+     "per": null,
+     "product": "HEINZ BEANS OR PASTA, 398 ML",
+     "source": "flyer",
+     "store": "superstore",
+     "stores": {
+      "freshco": 1.69,
+      "longos": 1.99,
+      "metro": 1.69,
+      "superstore": 1.5,
       "walmart": 1.77
      }
     }
@@ -645,6 +892,23 @@
       "superstore": 4.0,
       "walmart": 1.0
      }
+    },
+    "2026-10-08": {
+     "p": 1.0,
+     "per": null,
+     "product": "Potato, Red",
+     "source": "ecom",
+     "store": "walmart",
+     "stores": {
+      "farmboy": 2.99,
+      "freshco": 1.99,
+      "loblaws": 3.0,
+      "longos": 2.99,
+      "metro": 3.99,
+      "sobeys": 3.97,
+      "superstore": 3.0,
+      "walmart": 1.0
+     }
     }
    }
   },
@@ -677,6 +941,18 @@
       "sobeys": 4.99,
       "walmart": 2.38
      }
+    },
+    "2026-10-08": {
+     "p": 1.99,
+     "per": null,
+     "product": "Spinach or Methi Bunch Product of Canada or USA",
+     "source": "flyer",
+     "store": "freshco",
+     "stores": {
+      "freshco": 1.99,
+      "superstore": 2.48,
+      "walmart": 2.38
+     }
     }
    }
   },
@@ -694,6 +970,16 @@
      }
     },
     "2026-10-01": {
+     "p": 4.97,
+     "per": null,
+     "product": "Stonemill\u00ae Bakehouse Sourdough Bread",
+     "source": "ecom",
+     "store": "walmart",
+     "stores": {
+      "walmart": 4.97
+     }
+    },
+    "2026-10-08": {
      "p": 4.97,
      "per": null,
      "product": "Stonemill\u00ae Bakehouse Sourdough Bread",
@@ -730,6 +1016,21 @@
       "loblaws": 5.0,
       "longos": 7.99,
       "superstore": 4.0,
+      "walmart": 0.97
+     }
+    },
+    "2026-10-08": {
+     "p": 0.97,
+     "per": null,
+     "product": "Fruit2o Sparkling Strawberry 502ml 502 Ml",
+     "source": "ecom",
+     "store": "walmart",
+     "stores": {
+      "freshco": 3.99,
+      "loblaws": 6.5,
+      "longos": 3.99,
+      "sobeys": 3.99,
+      "superstore": 2.99,
       "walmart": 0.97
      }
     }
@@ -769,10 +1070,25 @@
       "superstore": 6.47,
       "walmart": 1.46
      }
+    },
+    "2026-10-08": {
+     "p": 0.97,
+     "per": null,
+     "product": "YOPLAIT YOP DRINKABLE YOGURT, 200 ML",
+     "source": "flyer",
+     "store": "superstore",
+     "stores": {
+      "freshco": 2.0,
+      "loblaws": 7.0,
+      "longos": 5.49,
+      "sobeys": 5.99,
+      "superstore": 0.97,
+      "walmart": 1.87
+     }
     }
    }
   }
  },
  "postal": "L1M2E2",
- "updated": "2026-10-07T11:26:14.393317+00:00"
+ "updated": "2026-10-08T11:27:19.576602+00:00"
 }
