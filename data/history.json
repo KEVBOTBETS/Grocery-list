@@ -75,7 +75,7 @@
      }
     },
     "2026-10-08": {
-     "p": 0.34,
+     "p": 0.33,
      "per": null,
      "product": "Apple, Gala",
      "source": "ecom",
@@ -87,7 +87,7 @@
       "longos": 2.49,
       "metro": 1.99,
       "sobeys": 1.99,
-      "walmart": 0.34
+      "walmart": 0.33
      }
     }
    }
@@ -270,7 +270,7 @@
     "2026-10-08": {
      "p": 4.47,
      "per": null,
-     "product": "Gay Lea Foods Light Spreadables Butter 227g",
+     "product": "Gay Lea Foods Light Spreadables Butter 227 G",
      "source": "ecom",
      "store": "walmart",
      "stores": {
@@ -326,8 +326,8 @@
      "source": "flyer",
      "store": "walmart",
      "stores": {
-      "farmboy": 10.99,
-      "freshco": 4.99,
+      "farmboy": 5.99,
+      "freshco": 3.99,
       "loblaws": 4.99,
       "longos": 3.99,
       "metro": 4.49,
@@ -795,14 +795,14 @@
      }
     },
     "2026-10-08": {
-     "p": 3.5,
+     "p": 3.29,
      "per": null,
-     "product": "PC\u00ae LEMONADE, 1.36 L OR NO NAME ORANGE JUICE BLENDS, 1.75 L",
+     "product": "Oasis Pure Breakfast Fruit Juice Orange 960 ml",
      "source": "flyer",
-     "store": "superstore",
+     "store": "sobeys",
      "stores": {
       "freshco": 5.0,
-      "sobeys": 3.99,
+      "sobeys": 3.29,
       "superstore": 3.5,
       "walmart": 4.46
      }
@@ -852,6 +852,7 @@
       "freshco": 1.69,
       "longos": 1.99,
       "metro": 1.69,
+      "sobeys": 2.29,
       "superstore": 1.5,
       "walmart": 1.77
      }
@@ -980,13 +981,13 @@
      }
     },
     "2026-10-08": {
-     "p": 4.97,
+     "p": 5.48,
      "per": null,
-     "product": "Stonemill\u00ae Bakehouse Sourdough Bread",
+     "product": "Stonemill\u00ae Authentic Sourdough Rye Multigrain Sliced Bread",
      "source": "ecom",
      "store": "walmart",
      "stores": {
-      "walmart": 4.97
+      "walmart": 5.48
      }
     }
    }
@@ -1090,5 +1091,5 @@
   }
  },
  "postal": "L1M2E2",
- "updated": "2026-10-08T11:27:19.576602+00:00"
+ "updated": "2026-10-09T11:25:55.727241+00:00"
 }
