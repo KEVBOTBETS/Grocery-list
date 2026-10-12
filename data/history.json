@@ -84,7 +84,6 @@
       "farmboy": 2.45,
       "freshco": 1.49,
       "loblaws": 2.0,
-      "longos": 2.49,
       "metro": 1.99,
       "sobeys": 1.99,
       "walmart": 0.33
@@ -132,7 +131,6 @@
      "store": "walmart",
      "stores": {
       "farmboy": 4.99,
-      "longos": 3.99,
       "metro": 3.99,
       "sobeys": 4.49,
       "superstore": 5.0,
@@ -222,11 +220,9 @@
      "source": "ecom",
      "store": "walmart",
      "stores": {
-      "costco": 9.99,
       "farmboy": 2.99,
       "freshco": 2.49,
       "loblaws": 3.0,
-      "longos": 3.79,
       "metro": 3.0,
       "sobeys": 2.67,
       "superstore": 3.5,
@@ -270,12 +266,11 @@
     "2026-10-08": {
      "p": 4.47,
      "per": null,
-     "product": "Gay Lea Spreadables Butter With Canola Oil 227g",
+     "product": "Gay Lea Foods Light Spreadables Butter 227 G",
      "source": "ecom",
      "store": "walmart",
      "stores": {
       "freshco": 6.99,
-      "longos": 7.99,
       "sobeys": 4.99,
       "walmart": 4.47
      }
@@ -329,9 +324,8 @@
       "farmboy": 5.99,
       "freshco": 3.99,
       "loblaws": 4.99,
-      "longos": 3.99,
       "metro": 4.49,
-      "sobeys": 4.88,
+      "sobeys": 3.99,
       "superstore": 6.5,
       "walmart": 3.47
      }
@@ -430,10 +424,8 @@
      "source": "flyer",
      "store": "walmart",
      "stores": {
-      "costco": 15.49,
       "freshco": 15.99,
       "loblaws": 16.0,
-      "longos": 4.99,
       "metro": 6.49,
       "sobeys": 12.99,
       "superstore": 20.0,
@@ -483,7 +475,6 @@
       "farmboy": 6.77,
       "freshco": 7.99,
       "loblaws": 3.93,
-      "longos": 3.99,
       "sobeys": 7.99,
       "walmart": 3.93
      }
@@ -684,7 +675,6 @@
      "store": "metro",
      "stores": {
       "loblaws": 4.5,
-      "longos": 6.49,
       "metro": 2.49,
       "sobeys": 7.19,
       "superstore": 4.25,
@@ -850,7 +840,6 @@
      "store": "superstore",
      "stores": {
       "freshco": 1.69,
-      "longos": 1.99,
       "metro": 1.69,
       "sobeys": 2.29,
       "superstore": 1.5,
@@ -1029,7 +1018,6 @@
      "stores": {
       "freshco": 3.99,
       "loblaws": 6.5,
-      "longos": 3.99,
       "sobeys": 3.99,
       "superstore": 2.99,
       "walmart": 0.97
@@ -1081,7 +1069,6 @@
      "stores": {
       "freshco": 2.0,
       "loblaws": 7.0,
-      "longos": 5.49,
       "sobeys": 5.99,
       "superstore": 0.97,
       "walmart": 1.87
@@ -1091,5 +1078,5 @@
   }
  },
  "postal": "L1M2E2",
- "updated": "2026-10-11T11:24:10.874230+00:00"
+ "updated": "2026-10-12T11:29:29.038050+00:00"
 }
