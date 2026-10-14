@@ -77,7 +77,7 @@
     "2026-10-08": {
      "p": 0.33,
      "per": null,
-     "product": "Apple, Gala",
+     "product": "Apple, Red Delicious",
      "source": "ecom",
      "store": "walmart",
      "stores": {
@@ -130,6 +130,7 @@
      "source": "ecom",
      "store": "walmart",
      "stores": {
+      "costco": 12.99,
       "farmboy": 4.99,
       "metro": 3.99,
       "sobeys": 4.49,
@@ -321,11 +322,11 @@
      "source": "flyer",
      "store": "walmart",
      "stores": {
-      "farmboy": 5.99,
+      "farmboy": 10.99,
       "freshco": 3.99,
       "loblaws": 4.99,
       "metro": 4.49,
-      "sobeys": 3.99,
+      "sobeys": 4.88,
       "superstore": 6.5,
       "walmart": 3.47
      }
@@ -371,6 +372,7 @@
      "source": "ecom",
      "store": "walmart",
      "stores": {
+      "costco": 24.99,
       "metro": 7.99,
       "superstore": 10.0,
       "walmart": 2.98
@@ -970,13 +972,13 @@
      }
     },
     "2026-10-08": {
-     "p": 5.48,
+     "p": 4.97,
      "per": null,
-     "product": "Stonemill\u00ae Authentic Sourdough Rye Multigrain Sliced Bread",
+     "product": "Stonemill\u00ae Bakehouse Sourdough Bread",
      "source": "ecom",
      "store": "walmart",
      "stores": {
-      "walmart": 5.48
+      "walmart": 4.97
      }
     }
    }
@@ -1078,5 +1080,5 @@
   }
  },
  "postal": "L1M2E2",
- "updated": "2026-10-13T11:29:39.409648+00:00"
+ "updated": "2026-10-14T11:39:29.870854+00:00"
 }
