@@ -42,6 +42,7 @@
      "source": "ecom",
      "store": "walmart",
      "stores": {
+      "sobeys": 16.99,
       "superstore": 4.0,
       "walmart": 2.97
      }
@@ -101,7 +102,7 @@
      }
     },
     "2026-10-15": {
-     "p": 0.33,
+     "p": 0.34,
      "per": null,
      "product": "Apple, Gala",
      "source": "ecom",
@@ -114,7 +115,7 @@
       "metro": 1.99,
       "sobeys": 1.99,
       "superstore": 1.5,
-      "walmart": 0.33
+      "walmart": 0.34
      }
     }
    }
@@ -428,8 +429,8 @@
       "loblaws": 4.88,
       "longos": 3.99,
       "metro": 4.99,
-      "sobeys": 3.49,
-      "superstore": 4.5,
+      "sobeys": 4.99,
+      "superstore": 3.0,
       "walmart": 3.47
      }
     }
@@ -492,7 +493,7 @@
       "longos": 19.99,
       "metro": 12.99,
       "sobeys": 5.99,
-      "superstore": 4.99,
+      "superstore": 4.88,
       "walmart": 2.98
      }
     }
@@ -1229,6 +1230,7 @@
      "source": "ecom",
      "store": "walmart",
      "stores": {
+      "sobeys": 2.99,
       "walmart": 2.38
      }
     }
@@ -1404,5 +1406,5 @@
   }
  },
  "postal": "L1M2E2",
- "updated": "2026-10-15T11:38:21.383534+00:00"
+ "updated": "2026-10-16T11:38:00.675289+00:00"
 }
