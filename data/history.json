@@ -102,7 +102,7 @@
      }
     },
     "2026-10-15": {
-     "p": 0.34,
+     "p": 0.33,
      "per": null,
      "product": "Apple, Gala",
      "source": "ecom",
@@ -115,7 +115,7 @@
       "metro": 1.99,
       "sobeys": 1.99,
       "superstore": 1.5,
-      "walmart": 0.34
+      "walmart": 0.33
      }
     }
    }
@@ -352,7 +352,7 @@
     "2026-10-15": {
      "p": 4.47,
      "per": null,
-     "product": "Gay Lea Foods Light Spreadables Butter 227 G",
+     "product": "Gay Lea Spreadables Butter With Canola Oil 227g",
      "source": "ecom",
      "store": "walmart",
      "stores": {
@@ -428,8 +428,8 @@
       "freshco": 3.0,
       "loblaws": 4.88,
       "longos": 3.99,
-      "metro": 4.99,
-      "sobeys": 4.99,
+      "metro": 3.99,
+      "sobeys": 3.49,
       "superstore": 3.0,
       "walmart": 3.47
      }
@@ -1406,5 +1406,5 @@
   }
  },
  "postal": "L1M2E2",
- "updated": "2026-10-16T11:38:00.675289+00:00"
+ "updated": "2026-10-17T11:33:40.532644+00:00"
 }
