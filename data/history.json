@@ -352,7 +352,7 @@
     "2026-10-15": {
      "p": 4.47,
      "per": null,
-     "product": "Gay Lea Foods Light Spreadables Butter 227 G",
+     "product": "Gay Lea Spreadables Butter With Canola Oil 227g",
      "source": "ecom",
      "store": "walmart",
      "stores": {
@@ -428,9 +428,9 @@
       "freshco": 3.0,
       "loblaws": 4.88,
       "longos": 3.99,
-      "metro": 3.99,
-      "sobeys": 3.49,
-      "superstore": 3.0,
+      "metro": 4.99,
+      "sobeys": 4.99,
+      "superstore": 4.5,
       "walmart": 3.47
      }
     }
@@ -667,15 +667,15 @@
      }
     },
     "2026-10-15": {
-     "p": 2.47,
+     "p": 2.97,
      "per": null,
-     "product": "Mott's Motts Fruitsations Plus Veggie Frt Flvrd Sncks Berry 226 G",
+     "product": "Mott's Fruitsations Mott\u2019s Fruitsations Unsweetened Apple Sauce 620 Ml",
      "source": "ecom",
      "store": "walmart",
      "stores": {
       "costco": 13.99,
       "loblaws": 12.0,
-      "walmart": 2.47
+      "walmart": 2.97
      }
     }
    }
@@ -718,7 +718,7 @@
      }
     },
     "2026-10-15": {
-     "p": 8.98,
+     "p": 9.58,
      "per": null,
      "product": "Extra Lean Ground Beef, Your Fresh Market",
      "source": "ecom",
@@ -726,7 +726,7 @@
      "stores": {
       "loblaws": 10.5,
       "sobeys": 9.99,
-      "walmart": 8.98
+      "walmart": 9.58
      }
     }
    }
@@ -1325,15 +1325,15 @@
      }
     },
     "2026-10-15": {
-     "p": 0.97,
+     "p": 1.78,
      "per": null,
-     "product": "Fruit2o Sparkling Strawberry 502ml 502 Ml",
+     "product": "Britannia Treat Wafer Strawberry 150 G",
      "source": "ecom",
      "store": "walmart",
      "stores": {
       "loblaws": 2.88,
       "superstore": 6.5,
-      "walmart": 0.97
+      "walmart": 1.78
      }
     }
    }
@@ -1407,5 +1407,5 @@
   }
  },
  "postal": "L1M2E2",
- "updated": "2026-10-20T11:38:00.677549+00:00"
+ "updated": "2026-10-21T15:55:51.233534+00:00"
 }
