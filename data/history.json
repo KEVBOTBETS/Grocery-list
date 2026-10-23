@@ -55,6 +55,7 @@
      "store": "farmboy",
      "stores": {
       "farmboy": 1.67,
+      "sobeys": 17.99,
       "walmart": 2.97
      }
     }
@@ -141,7 +142,7 @@
       "loblaws": 4.0,
       "longos": 1.99,
       "metro": 3.99,
-      "sobeys": 1.99,
+      "sobeys": 0.99,
       "superstore": 4.99,
       "walmart": 0.41
      }
@@ -221,7 +222,7 @@
      "stores": {
       "freshco": 5.0,
       "metro": 6.99,
-      "sobeys": 7.99,
+      "sobeys": 6.99,
       "superstore": 5.0,
       "walmart": 3.97
      }
@@ -608,7 +609,7 @@
       "loblaws": 4.99,
       "longos": 6.99,
       "metro": 4.99,
-      "sobeys": 15.83,
+      "sobeys": 7.49,
       "superstore": 3.75,
       "walmart": 2.98
      }
@@ -892,14 +893,14 @@
      }
     },
     "2026-10-22": {
-     "p": 9.58,
+     "p": 8.98,
      "per": null,
      "product": "Extra Lean Ground Beef, Your Fresh Market",
      "source": "ecom",
      "store": "walmart",
      "stores": {
       "metro": 10.99,
-      "walmart": 9.58
+      "walmart": 8.98
      }
     }
    }
@@ -1364,6 +1365,7 @@
       "loblaws": 2.5,
       "longos": 1.99,
       "metro": 1.69,
+      "sobeys": 2.29,
       "superstore": 2.0,
       "walmart": 1.77
      }
@@ -1517,6 +1519,7 @@
      "stores": {
       "farmboy": 2.75,
       "freshco": 1.99,
+      "sobeys": 5.0,
       "superstore": 2.49,
       "walmart": 2.38
      }
@@ -1567,13 +1570,13 @@
      }
     },
     "2026-10-22": {
-     "p": 4.97,
+     "p": 5.48,
      "per": null,
-     "product": "Stonemill\u00ae Bakehouse Sourdough Bread",
+     "product": "Stonemill\u00ae Authentic Sourdough Rye Multigrain Sliced Bread",
      "source": "ecom",
      "store": "walmart",
      "stores": {
-      "walmart": 4.97
+      "walmart": 5.48
      }
     }
    }
@@ -1732,5 +1735,5 @@
   }
  },
  "postal": "L1M2E2",
- "updated": "2026-10-22T15:51:54.434372+00:00"
+ "updated": "2026-10-23T15:43:27.564897+00:00"
 }
