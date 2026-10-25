@@ -1570,13 +1570,13 @@
      }
     },
     "2026-10-22": {
-     "p": 5.48,
+     "p": 4.97,
      "per": null,
-     "product": "Stonemill\u00ae Authentic Sourdough Rye Multigrain Sliced Bread",
+     "product": "Stonemill\u00ae Bakehouse Sourdough Bread",
      "source": "ecom",
      "store": "walmart",
      "stores": {
-      "walmart": 5.48
+      "walmart": 4.97
      }
     }
    }
@@ -1735,5 +1735,5 @@
   }
  },
  "postal": "L1M2E2",
- "updated": "2026-10-24T14:28:36.345453+00:00"
+ "updated": "2026-10-25T14:56:23.298007+00:00"
 }
