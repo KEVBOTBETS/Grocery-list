@@ -220,6 +220,7 @@
      "source": "ecom",
      "store": "walmart",
      "stores": {
+      "costco": 12.99,
       "freshco": 5.0,
       "metro": 6.99,
       "sobeys": 6.99,
@@ -526,6 +527,7 @@
      "source": "flyer",
      "store": "superstore",
      "stores": {
+      "costco": 74.99,
       "farmboy": 4.79,
       "freshco": 4.99,
       "loblaws": 5.0,
@@ -533,7 +535,7 @@
       "metro": 4.49,
       "sobeys": 4.99,
       "superstore": 3.0,
-      "walmart": 3.43
+      "walmart": 3.47
      }
     }
    }
@@ -605,6 +607,7 @@
      "source": "ecom",
      "store": "walmart",
      "stores": {
+      "costco": 19.99,
       "farmboy": 15.83,
       "loblaws": 4.99,
       "longos": 6.99,
@@ -693,6 +696,7 @@
      "source": "flyer",
      "store": "farmboy",
      "stores": {
+      "costco": 22.99,
       "farmboy": 3.5,
       "freshco": 15.99,
       "loblaws": 6.5,
@@ -891,14 +895,14 @@
      }
     },
     "2026-10-22": {
-     "p": 8.98,
+     "p": 9.58,
      "per": null,
      "product": "Extra Lean Ground Beef, Your Fresh Market",
      "source": "ecom",
      "store": "walmart",
      "stores": {
       "metro": 10.99,
-      "walmart": 8.98
+      "walmart": 9.58
      }
     }
    }
@@ -1092,7 +1096,7 @@
     "2026-10-22": {
      "p": 3.64,
      "per": null,
-     "product": "Sealtest Skim 0% Milk 1l 1 L",
+     "product": "Sealtest Partly Skimmed 1% Milk 1l 1 L",
      "source": "ecom",
      "store": "walmart",
      "stores": {
@@ -1733,5 +1737,5 @@
   }
  },
  "postal": "L1M2E2",
- "updated": "2026-10-26T17:20:03.577810+00:00"
+ "updated": "2026-10-27T16:34:44.888490+00:00"
 }
