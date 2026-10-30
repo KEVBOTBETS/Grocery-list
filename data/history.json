@@ -635,7 +635,7 @@
       "longos": 4.49,
       "metro": 4.79,
       "sobeys": 3.49,
-      "superstore": 3.99,
+      "superstore": 3.0,
       "walmart": 2.98
      }
     }
@@ -1064,7 +1064,7 @@
      }
     },
     "2026-10-29": {
-     "p": 9.58,
+     "p": 8.98,
      "per": null,
      "product": "Extra Lean Ground Beef, Your Fresh Market",
      "source": "ecom",
@@ -1072,7 +1072,7 @@
      "stores": {
       "loblaws": 10.5,
       "superstore": 13.0,
-      "walmart": 9.58
+      "walmart": 8.98
      }
     }
    }
@@ -2058,5 +2058,5 @@
   }
  },
  "postal": "L1M2E2",
- "updated": "2026-10-29T17:24:18.115274+00:00"
+ "updated": "2026-10-30T16:59:47.908730+00:00"
 }
