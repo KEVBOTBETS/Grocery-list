@@ -627,14 +627,14 @@
      "source": "flyer",
      "store": "walmart",
      "stores": {
-      "costco": 64.99,
-      "farmboy": 4.99,
+      "costco": 7.99,
+      "farmboy": 5.99,
       "freshco": 4.99,
-      "loblaws": 5.0,
-      "longos": 4.49,
+      "loblaws": 6.49,
+      "longos": 6.49,
       "metro": 4.79,
-      "sobeys": 3.49,
-      "superstore": 3.0,
+      "sobeys": 4.77,
+      "superstore": 5.0,
       "walmart": 2.98
      }
     }
@@ -830,7 +830,7 @@
      "source": "flyer",
      "store": "sobeys",
      "stores": {
-      "costco": 22.99,
+      "costco": 19.99,
       "freshco": 7.99,
       "loblaws": 7.5,
       "longos": 6.99,
@@ -1866,7 +1866,7 @@
     "2026-10-29": {
      "p": 4.97,
      "per": null,
-     "product": "Stonemill\u00ae Bakehouse Sourdough Bread",
+     "product": "Stonemill\u00ae San Francisco Style Sourdough Bread, 550 G",
      "source": "ecom",
      "store": "walmart",
      "stores": {
@@ -2045,6 +2045,7 @@
      "source": "flyer",
      "store": "freshco",
      "stores": {
+      "costco": 9.99,
       "farmboy": 3.99,
       "freshco": 2.0,
       "loblaws": 3.5,
@@ -2057,5 +2058,5 @@
   }
  },
  "postal": "L1M2E2",
- "updated": "2026-11-03T18:24:17.984613+00:00"
+ "updated": "2026-11-04T18:36:45.879312+00:00"
 }
