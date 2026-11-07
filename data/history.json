@@ -1987,9 +1987,9 @@
      }
     },
     "2026-11-05": {
-     "p": 0.99,
-     "per": "lb",
-     "product": "Bulk Potatoes",
+     "p": 0.69,
+     "per": null,
+     "product": "Russet Potatoes 1 Count",
      "source": "flyer",
      "store": "sobeys",
      "stores": {
@@ -1997,7 +1997,7 @@
       "loblaws": 2.5,
       "longos": 1.99,
       "metro": 4.99,
-      "sobeys": 0.99,
+      "sobeys": 0.69,
       "superstore": 3.0,
       "walmart": 2.77
      }
@@ -2383,5 +2383,5 @@
   }
  },
  "postal": "L1M2E2",
- "updated": "2026-11-06T17:55:37.176344+00:00"
+ "updated": "2026-11-07T16:49:54.117303+00:00"
 }
