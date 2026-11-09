@@ -840,7 +840,6 @@
      "source": "ecom",
      "store": "walmart",
      "stores": {
-      "costco": 19.99,
       "farmboy": 4.99,
       "freshco": 10.0,
       "longos": 7.99,
@@ -2383,5 +2382,5 @@
   }
  },
  "postal": "L1M2E2",
- "updated": "2026-11-08T17:01:18.637568+00:00"
+ "updated": "2026-11-09T21:24:53.648421+00:00"
 }
