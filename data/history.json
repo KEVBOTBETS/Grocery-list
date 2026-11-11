@@ -2370,10 +2370,9 @@
      "source": "flyer",
      "store": "superstore",
      "stores": {
-      "costco": 9.99,
       "farmboy": 3.99,
       "freshco": 2.0,
-      "loblaws": 3.5,
+      "loblaws": 4.5,
       "metro": 6.49,
       "sobeys": 3.33,
       "superstore": 2.0,
@@ -2384,5 +2383,5 @@
   }
  },
  "postal": "L1M2E2",
- "updated": "2026-11-10T18:38:59.233663+00:00"
+ "updated": "2026-11-11T18:38:54.948532+00:00"
 }
