@@ -828,7 +828,7 @@
     "2026-11-12": {
      "p": 3.98,
      "per": null,
-     "product": "Great Value Thick Cheddar Style Process Cheese Slices",
+     "product": "Great Value Cheddar-Style Process Cheese Product",
      "source": "ecom",
      "store": "walmart",
      "stores": {
@@ -1894,7 +1894,7 @@
     "2026-11-12": {
      "p": 2.98,
      "per": null,
-     "product": "Oreo, Mini Golden Cookies, Snack Pack Of 6, 25g 150 G",
+     "product": "Oreo, Mini Golden Cookies, Made In A Peanut-Free Facility, School Snacks 200 G",
      "source": "ecom",
      "store": "walmart",
      "stores": {
@@ -2706,5 +2706,5 @@
   }
  },
  "postal": "L1M2E2",
- "updated": "2026-11-14T17:01:34.805143+00:00"
+ "updated": "2026-11-15T17:41:02.921150+00:00"
 }
