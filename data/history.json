@@ -828,7 +828,7 @@
     "2026-11-12": {
      "p": 3.98,
      "per": null,
-     "product": "Great Value Cheddar-Style Process Cheese Product",
+     "product": "Great Value Thick Cheddar Style Process Cheese Slices",
      "source": "ecom",
      "store": "walmart",
      "stores": {
@@ -2706,5 +2706,5 @@
   }
  },
  "postal": "L1M2E2",
- "updated": "2026-11-15T17:41:02.921150+00:00"
+ "updated": "2026-11-16T20:58:23.205005+00:00"
 }
