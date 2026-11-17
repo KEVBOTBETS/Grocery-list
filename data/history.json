@@ -2558,15 +2558,15 @@
      }
     },
     "2026-11-12": {
-     "p": 1.78,
+     "p": 5.37,
      "per": null,
-     "product": "Britannia Treat Wafer Strawberry 150 G",
+     "product": "E-Hershey V Kisses Strawberry",
      "source": "ecom",
      "store": "walmart",
      "stores": {
       "metro": 27.19,
       "superstore": 6.0,
-      "walmart": 1.78
+      "walmart": 5.37
      }
     }
    }
@@ -2706,5 +2706,5 @@
   }
  },
  "postal": "L1M2E2",
- "updated": "2026-11-16T20:58:23.205005+00:00"
+ "updated": "2026-11-17T19:48:18.299020+00:00"
 }
