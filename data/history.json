@@ -835,7 +835,7 @@
       "costco": 7.99,
       "freshco": 3.99,
       "loblaws": 4.98,
-      "longos": 3.99,
+      "longos": 5.99,
       "metro": 3.99,
       "sobeys": 3.99,
       "superstore": 6.49,
@@ -1314,13 +1314,13 @@
      }
     },
     "2026-11-12": {
-     "p": 2.47,
+     "p": 2.97,
      "per": null,
-     "product": "Mott's Motts Fruitsations Plus Veggie Frt Flvrd Sncks Berry 226 G",
+     "product": "Mott's Fruitsations Mott\u2019s Fruitsations Unsweetened Apple Sauce 620 Ml",
      "source": "ecom",
      "store": "walmart",
      "stores": {
-      "walmart": 2.47
+      "walmart": 2.97
      }
     }
    }
@@ -2706,5 +2706,5 @@
   }
  },
  "postal": "L1M2E2",
- "updated": "2026-11-17T19:48:18.299020+00:00"
+ "updated": "2026-11-18T19:23:15.529593+00:00"
 }
