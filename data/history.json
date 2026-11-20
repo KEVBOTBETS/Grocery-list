@@ -932,13 +932,13 @@
      "store": "walmart",
      "stores": {
       "costco": 7.99,
-      "farmboy": 6.49,
-      "freshco": 4.99,
-      "loblaws": 5.97,
-      "longos": 5.99,
-      "metro": 3.99,
+      "farmboy": 3.99,
+      "freshco": 3.49,
+      "loblaws": 3.5,
+      "longos": 3.99,
+      "metro": 3.49,
       "sobeys": 3.99,
-      "superstore": 4.5,
+      "superstore": 3.99,
       "walmart": 2.98
      }
     }
@@ -3032,5 +3032,5 @@
   }
  },
  "postal": "L1M2E2",
- "updated": "2026-11-19T19:27:58.830677+00:00"
+ "updated": "2026-11-20T19:04:07.504424+00:00"
 }
