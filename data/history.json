@@ -103,6 +103,17 @@
       "metro": 1.99,
       "walmart": 2.97
      }
+    },
+    "2026-11-26": {
+     "p": 1.99,
+     "per": null,
+     "product": "PIERRE BONNE SUPREME APPLE SAUCE",
+     "source": "flyer",
+     "store": "metro",
+     "stores": {
+      "metro": 1.99,
+      "walmart": 2.97
+     }
     }
    }
   },
@@ -259,6 +270,22 @@
       "superstore": 5.0,
       "walmart": 0.41
      }
+    },
+    "2026-11-26": {
+     "p": 0.41,
+     "per": null,
+     "product": "Apple, Cortland",
+     "source": "ecom",
+     "store": "walmart",
+     "stores": {
+      "farmboy": 5.99,
+      "freshco": 1.79,
+      "longos": 2.49,
+      "metro": 2.49,
+      "sobeys": 2.45,
+      "superstore": 6.0,
+      "walmart": 0.41
+     }
     }
    }
   },
@@ -401,6 +428,21 @@
       "superstore": 19.0,
       "walmart": 3.97
      }
+    },
+    "2026-11-26": {
+     "p": 2.88,
+     "per": null,
+     "product": "SELECTION BACON",
+     "source": "flyer",
+     "store": "metro",
+     "stores": {
+      "loblaws": 6.0,
+      "longos": 3.7,
+      "metro": 2.88,
+      "sobeys": 2.99,
+      "superstore": 6.0,
+      "walmart": 3.97
+     }
     }
    }
   },
@@ -489,6 +531,16 @@
      }
     },
     "2026-11-19": {
+     "p": 0.29,
+     "per": null,
+     "product": "Banana",
+     "source": "ecom",
+     "store": "walmart",
+     "stores": {
+      "walmart": 0.29
+     }
+    },
+    "2026-11-26": {
      "p": 0.29,
      "per": null,
      "product": "Banana",
@@ -655,6 +707,23 @@
       "superstore": 7.0,
       "walmart": 1.97
      }
+    },
+    "2026-11-26": {
+     "p": 1.97,
+     "per": null,
+     "product": "Your Fresh Market Italian-Style Crusty Bread",
+     "source": "ecom",
+     "store": "walmart",
+     "stores": {
+      "farmboy": 3.45,
+      "freshco": 2.99,
+      "loblaws": 4.0,
+      "longos": 3.49,
+      "metro": 2.44,
+      "sobeys": 2.49,
+      "superstore": 3.0,
+      "walmart": 1.97
+     }
     }
    }
   },
@@ -779,6 +848,21 @@
       "longos": 5.99,
       "metro": 3.99,
       "sobeys": 5.99,
+      "walmart": 4.97
+     }
+    },
+    "2026-11-26": {
+     "p": 2.99,
+     "per": null,
+     "product": "Flavoured Butter",
+     "source": "flyer",
+     "store": "sobeys",
+     "stores": {
+      "farmboy": 4.99,
+      "loblaws": 7.0,
+      "longos": 5.99,
+      "metro": 7.49,
+      "sobeys": 2.99,
       "walmart": 4.97
      }
     }
@@ -941,6 +1025,23 @@
       "superstore": 4.5,
       "walmart": 2.98
      }
+    },
+    "2026-11-26": {
+     "p": 2.49,
+     "per": null,
+     "product": "BLACK DIAMOND SLICED CHEESE",
+     "source": "flyer",
+     "store": "metro",
+     "stores": {
+      "costco": 179.99,
+      "freshco": 6.0,
+      "loblaws": 5.97,
+      "longos": 5.35,
+      "metro": 2.49,
+      "sobeys": 4.99,
+      "superstore": 6.0,
+      "walmart": 3.98
+     }
     }
    }
   },
@@ -1081,6 +1182,21 @@
       "metro": 4.88,
       "sobeys": 6.49,
       "superstore": 13.0,
+      "walmart": 2.98
+     }
+    },
+    "2026-11-26": {
+     "p": 2.98,
+     "per": null,
+     "product": "Your Fresh Market Smoked Chicken Breast",
+     "source": "ecom",
+     "store": "walmart",
+     "stores": {
+      "farmboy": 9.99,
+      "loblaws": 14.0,
+      "longos": 6.7,
+      "metro": 5.99,
+      "superstore": 7.0,
       "walmart": 2.98
      }
     }
@@ -1243,6 +1359,23 @@
       "superstore": 8.0,
       "walmart": 2.77
      }
+    },
+    "2026-11-26": {
+     "p": 4.99,
+     "per": null,
+     "product": "Excelsior Ground Coffee",
+     "source": "flyer",
+     "store": "freshco",
+     "stores": {
+      "costco": 15.49,
+      "freshco": 4.99,
+      "loblaws": 7.0,
+      "longos": 7.49,
+      "metro": 6.49,
+      "sobeys": 5.0,
+      "superstore": 7.5,
+      "walmart": 5.77
+     }
     }
    }
   },
@@ -1378,6 +1511,22 @@
       "superstore": 9.18,
       "walmart": 3.93
      }
+    },
+    "2026-11-26": {
+     "p": 3.93,
+     "per": null,
+     "product": "Great Value Large 12 Eggs L",
+     "source": "ecom",
+     "store": "walmart",
+     "stores": {
+      "farmboy": 6.99,
+      "freshco": 7.99,
+      "loblaws": 6.0,
+      "longos": 3.99,
+      "metro": 4.99,
+      "sobeys": 4.99,
+      "walmart": 3.93
+     }
     }
    }
   },
@@ -1480,6 +1629,18 @@
      "stores": {
       "superstore": 2.47,
       "walmart": 2.47
+     }
+    },
+    "2026-11-26": {
+     "p": 2.97,
+     "per": null,
+     "product": "Mott's Fruitsations Mott\u2019s Fruitsations Unsweetened Apple Sauce 620 Ml",
+     "source": "ecom",
+     "store": "walmart",
+     "stores": {
+      "costco": 13.99,
+      "sobeys": 3.5,
+      "walmart": 2.97
      }
     }
    }
@@ -1585,6 +1746,19 @@
      "source": "ecom",
      "store": "walmart",
      "stores": {
+      "walmart": 8.98
+     }
+    },
+    "2026-11-26": {
+     "p": 6.99,
+     "per": "lb",
+     "product": "Fresh Boneless Inside Round Oven Roast or Family Size Marinating Steak cut by yo",
+     "source": "flyer",
+     "store": "sobeys",
+     "stores": {
+      "longos": 9.99,
+      "sobeys": 6.99,
+      "superstore": 13.0,
       "walmart": 8.98
      }
     }
@@ -1694,6 +1868,17 @@
       "superstore": 5.44,
       "walmart": 7.98
      }
+    },
+    "2026-11-26": {
+     "p": 5.45,
+     "per": null,
+     "product": "Blue Ribbon Lean Ground Beef",
+     "source": "flyer",
+     "store": "farmboy",
+     "stores": {
+      "farmboy": 5.45,
+      "walmart": 5.98
+     }
     }
    }
   },
@@ -1798,6 +1983,19 @@
      "source": "ecom",
      "store": "walmart",
      "stores": {
+      "walmart": 6.68
+     }
+    },
+    "2026-11-26": {
+     "p": 5.99,
+     "per": null,
+     "product": "Lactantia UltraP\u016br, Lactose Free or PurFiltre Organic Milk",
+     "source": "flyer",
+     "store": "longos",
+     "stores": {
+      "loblaws": 6.25,
+      "longos": 5.99,
+      "sobeys": 5.99,
       "walmart": 6.68
      }
     }
@@ -1937,6 +2135,24 @@
       "superstore": 4.25,
       "walmart": 3.64
      }
+    },
+    "2026-11-26": {
+     "p": 2.79,
+     "per": null,
+     "product": "Neilson Milk",
+     "source": "flyer",
+     "store": "farmboy",
+     "stores": {
+      "costco": 19.99,
+      "farmboy": 2.79,
+      "freshco": 3.99,
+      "loblaws": 5.0,
+      "longos": 5.99,
+      "metro": 7.99,
+      "sobeys": 5.99,
+      "superstore": 5.5,
+      "walmart": 3.64
+     }
     }
    }
   },
@@ -2034,6 +2250,16 @@
      "stores": {
       "walmart": 2.98
      }
+    },
+    "2026-11-26": {
+     "p": 2.98,
+     "per": null,
+     "product": "Oreo Mini Original Chocolate Sandwich Cookies, Peanut Free Snack, School Snacks,",
+     "source": "ecom",
+     "store": "walmart",
+     "stores": {
+      "walmart": 2.98
+     }
     }
    }
   },
@@ -2121,6 +2347,16 @@
      }
     },
     "2026-11-19": {
+     "p": 2.98,
+     "per": null,
+     "product": "Oreo, Mini Golden Cookies, Made In A Peanut-Free Facility, School Snacks 200 G",
+     "source": "ecom",
+     "store": "walmart",
+     "stores": {
+      "walmart": 2.98
+     }
+    },
+    "2026-11-26": {
      "p": 2.98,
      "per": null,
      "product": "Oreo, Mini Golden Cookies, Made In A Peanut-Free Facility, School Snacks 200 G",
@@ -2254,6 +2490,21 @@
       "loblaws": 6.0,
       "metro": 3.99,
       "superstore": 4.0,
+      "walmart": 4.46
+     }
+    },
+    "2026-11-26": {
+     "p": 3.99,
+     "per": null,
+     "product": "Tropicana Orange Juice 1.36 L or Natrel Fine Filtered Milk Skim, 1% or 2%, 2 L -",
+     "source": "flyer",
+     "store": "freshco",
+     "stores": {
+      "farmboy": 5.45,
+      "freshco": 3.99,
+      "longos": 4.99,
+      "sobeys": 8.99,
+      "superstore": 4.25,
       "walmart": 4.46
      }
     }
@@ -2406,6 +2657,22 @@
       "superstore": 4.0,
       "walmart": 1.44
      }
+    },
+    "2026-11-26": {
+     "p": 0.85,
+     "per": null,
+     "product": "Longo's Pasta",
+     "source": "flyer",
+     "store": "longos",
+     "stores": {
+      "freshco": 1.99,
+      "loblaws": 5.0,
+      "longos": 0.85,
+      "metro": 1.69,
+      "sobeys": 2.49,
+      "superstore": 2.0,
+      "walmart": 1.44
+     }
     }
    }
   },
@@ -2551,6 +2818,23 @@
       "superstore": 2.0,
       "walmart": 2.98
      }
+    },
+    "2026-11-26": {
+     "p": 1.27,
+     "per": "lb",
+     "product": "Bulk Russet potatoes",
+     "source": "flyer",
+     "store": "walmart",
+     "stores": {
+      "farmboy": 4.5,
+      "freshco": 3.99,
+      "loblaws": 2.0,
+      "longos": 2.49,
+      "metro": 4.49,
+      "sobeys": 3.99,
+      "superstore": 2.98,
+      "walmart": 1.27
+     }
     }
    }
   },
@@ -2666,6 +2950,16 @@
       "farmboy": 2.75,
       "walmart": 2.84
      }
+    },
+    "2026-11-26": {
+     "p": 2.84,
+     "per": null,
+     "product": "Spinach",
+     "source": "ecom",
+     "store": "walmart",
+     "stores": {
+      "walmart": 2.84
+     }
     }
    }
   },
@@ -2753,6 +3047,16 @@
      }
     },
     "2026-11-19": {
+     "p": 4.97,
+     "per": null,
+     "product": "Stonemill\u00ae San Francisco Style Sourdough Bread, 550 G",
+     "source": "ecom",
+     "store": "walmart",
+     "stores": {
+      "walmart": 4.97
+     }
+    },
+    "2026-11-26": {
      "p": 4.97,
      "per": null,
      "product": "Stonemill\u00ae San Francisco Style Sourdough Bread, 550 G",
@@ -2874,6 +3178,17 @@
      "store": "walmart",
      "stores": {
       "loblaws": 6.5,
+      "walmart": 5.37
+     }
+    },
+    "2026-11-26": {
+     "p": 5.37,
+     "per": null,
+     "product": "E-Hershey V Kisses Strawberry",
+     "source": "ecom",
+     "store": "walmart",
+     "stores": {
+      "superstore": 7.0,
       "walmart": 5.37
      }
     }
@@ -3026,10 +3341,27 @@
       "superstore": 3.0,
       "walmart": 2.27
      }
+    },
+    "2026-11-26": {
+     "p": 2.27,
+     "per": null,
+     "product": "Hans Dairy Dahi 2% M.F. Natural Yogurt 750 G",
+     "source": "ecom",
+     "store": "walmart",
+     "stores": {
+      "farmboy": 8.99,
+      "freshco": 4.94,
+      "loblaws": 2.5,
+      "longos": 3.49,
+      "metro": 3.49,
+      "sobeys": 4.99,
+      "superstore": 3.47,
+      "walmart": 2.27
+     }
     }
    }
   }
  },
  "postal": "L1M2E2",
- "updated": "2026-11-25T20:27:12.096372+00:00"
+ "updated": "2026-11-26T20:08:14.521674+00:00"
 }
