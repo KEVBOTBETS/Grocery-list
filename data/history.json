@@ -1034,7 +1034,8 @@
      "store": "metro",
      "stores": {
       "costco": 179.99,
-      "freshco": 6.0,
+      "farmboy": 5.99,
+      "freshco": 5.0,
       "loblaws": 5.97,
       "longos": 5.35,
       "metro": 2.49,
@@ -3363,5 +3364,5 @@
   }
  },
  "postal": "L1M2E2",
- "updated": "2026-11-26T20:08:14.521674+00:00"
+ "updated": "2026-11-27T19:54:51.476434+00:00"
 }
